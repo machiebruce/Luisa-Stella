@@ -482,20 +482,17 @@ body.hide-cursor * {
   transform: translateY(-50%);
   z-index: 40;
   display: none;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.75rem 0.875rem;
-  background: rgba(242, 241, 239, 0.78);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(42, 33, 26, 0.08);
+  cursor: pointer;
 }
 @media (min-width: 1024px) {
   .dot-nav {
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
+    padding: 12px;
   }
   .dot-nav.is-visible {
     opacity: 1;
@@ -503,20 +500,13 @@ body.hide-cursor * {
   }
 }
 .dot-item {
+  display: none;
+}
+/* Collapsed indicator: active dot */
+.dot-item.is-active {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  text-decoration: none;
-  color: var(--color-espresso);
-  opacity: 0.3;
-  transition: opacity 0.3s ease;
-  padding: 0.2rem 0;
-}
-.dot-item:hover {
-  opacity: 0.7;
-}
-.dot-item.is-active {
-  opacity: 1;
 }
 .dot {
   width: 7px;
@@ -537,12 +527,35 @@ body.hide-cursor * {
   white-space: nowrap;
   display: none;
 }
+/* Expanded on hover */
+.dot-nav:hover {
+  padding: 0.75rem 0.875rem;
+  background: rgba(242, 241, 239, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(42, 33, 26, 0.08);
+}
+.dot-nav:hover .dot-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--color-espresso);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+  padding: 0.2rem 0;
+}
+.dot-nav:hover .dot-item:hover {
+  opacity: 0.7;
+}
+.dot-nav:hover .dot-item.is-active {
+  opacity: 1;
+}
+.dot-nav:hover .dot-item.is-active .dot {
+  transform: scale(1.4);
+}
 @media (min-width: 1280px) {
-  .dot-label {
+  .dot-nav:hover .dot-label {
     display: inline;
   }
-}
-/* Show labels on hover regardless of viewport */
-.dot-item:hover .dot-label {
-  display: inline;
 }
