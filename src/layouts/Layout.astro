@@ -8,7 +8,7 @@ export interface Props {
 }
 
 const { title, description, hero = false } = Astro.props;
-const path = Astro.url.pathname;
+const path = Astro.url.pathname.replace(/\/$/, "");
 const navItems = [
   { href: "/", label: "La Villa" },
   { href: "/progetto-restauro", label: "Progetto" },
