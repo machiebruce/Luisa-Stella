@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: 'DM Serif Display', serif;
+  --font-serif: ivymode, sans-serif;
   --font-sans: 'Teachers', sans-serif;
   --color-cream: #f2f1ef;
   --color-sage: #bac8c8;
