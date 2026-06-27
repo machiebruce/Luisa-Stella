@@ -7,8 +7,8 @@
   --color-cream: #f2f1ef;
   --color-sage: #b9c7c8;
   --color-espresso: #2a211a;
-  --color-accent: #1c5b5a;
-  --color-accent-ink: #154a49;
+  --color-accent: #d1462f;
+  --color-accent-ink: #b33822;
   --color-stone-150: #f0ede8;
 
   --text-xs: 13px;
@@ -69,10 +69,10 @@ html.lenis body {
   justify-content: center;
 }
 .eyebrow.is-light {
-  color: #9ec6c2;
+  color: #eb9685;
 }
 .eyebrow.is-light::before {
-  background: #9ec6c2;
+  background: #eb9685;
 }
 /* eyebrow without the leading rule (e.g. footer columns) */
 .eyebrow.is-bare::before {
@@ -472,4 +472,70 @@ html.lenis body {
 body.hide-cursor,
 body.hide-cursor * {
   cursor: none !important;
+}
+
+/* ----- Dot navigation (vertical sidebar) ----- */
+.dot-nav {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0.875rem;
+  background: rgba(242, 241, 239, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(42, 33, 26, 0.08);
+}
+@media (min-width: 1024px) {
+  .dot-nav {
+    display: flex;
+  }
+}
+.dot-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--color-espresso);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+  padding: 0.2rem 0;
+}
+.dot-item:hover {
+  opacity: 0.7;
+}
+.dot-item.is-active {
+  opacity: 1;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.dot-item.is-active .dot {
+  transform: scale(1.4);
+}
+.dot-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  white-space: nowrap;
+  display: none;
+}
+@media (min-width: 1280px) {
+  .dot-label {
+    display: inline;
+  }
+}
+/* Show labels on hover regardless of viewport */
+.dot-item:hover .dot-label {
+  display: inline;
 }

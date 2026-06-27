@@ -94,7 +94,7 @@ const dir = "/images/restauro/";
   <section id="scroll-panels" class="relative lg:h-screen lg:overflow-hidden">
     <div class="panels-track lg:flex lg:flex-nowrap lg:h-screen lg:w-max">
       {panels.map((panel, i) => (
-        <article class="panel relative overflow-hidden flex items-center px-6 md:px-10 lg:px-16 py-16 md:py-24 lg:py-0 lg:w-screen lg:h-screen lg:mr-24 bg-white">
+        <article id={"panel-" + panel.id} class="panel relative overflow-hidden flex items-center px-6 md:px-10 lg:px-16 py-16 md:py-24 lg:py-0 lg:w-screen lg:h-screen lg:mr-24 bg-white">
           <span class="pointer-events-none select-none absolute font-serif leading-none text-accent/[0.08] text-[6.5rem] sm:text-[9rem] lg:text-[20rem] -top-6 left-2 lg:top-1/2 lg:left-24 lg:-translate-y-1/2">{panel.label}</span>
           <div class="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div class="w-full">
@@ -134,6 +134,16 @@ const dir = "/images/restauro/";
     </div>
   </section>
 
+  <!-- Dot navigation (lato destro) -->
+  <nav id="dot-nav" class="dot-nav" aria-label="Sezioni">
+    {panels.map((panel, i) => (
+      <a href={`#panel-${panel.id}`} class="dot-item" data-index={i}>
+        <span class="dot" aria-hidden="true"></span>
+        <span class="dot-label">{panel.title}</span>
+      </a>
+    ))}
+  </nav>
+
   <!-- Progress bar (solo scroll orizzontale ≥lg) -->
   <div id="scroll-progress" class="hidden lg:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-40 items-center gap-3 px-4 py-2.5 bg-cream/85 backdrop-blur-sm border border-espresso/10">
     <span class="text-espresso/70 text-sm font-serif" id="panel-label">01/06</span>
@@ -169,6 +179,23 @@ const dir = "/images/restauro/";
         },
       });
 
+      const dots = document.querySelectorAll<HTMLElement>(".dot-item");
+
+      const scrollToPanel = (index: number) => {
+        const totalScroll = (total - 1) * scrollPerPanel();
+        const target = index * scrollPerPanel();
+        const triggerTop = document.getElementById("scroll-panels")?.offsetTop || 0;
+        window.scrollTo({ top: triggerTop + target, behavior: "smooth" });
+      };
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", (e) => {
+          e.preventDefault();
+          const i = parseInt(dot.dataset.index || "0");
+          scrollToPanel(i);
+        });
+      });
+
       const progFill = document.getElementById("progress-fill");
       const progLabel = document.getElementById("panel-label");
       ScrollTrigger.create({
@@ -181,6 +208,8 @@ const dir = "/images/restauro/";
             const cur = Math.min(total - 1, Math.floor(self.progress * total)) + 1;
             progLabel.textContent = String(cur).padStart(2, "0") + "/" + String(total).padStart(2, "0");
           }
+          const cur = Math.min(total - 1, Math.floor(self.progress * total));
+          dots.forEach((d, j) => d.classList.toggle("is-active", j === cur));
         },
       });
     }
