@@ -3,63 +3,71 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Contatti" description="Contatta Villa Masseria Cacchiamo">
-  <section class="pt-40 pb-28 md:pb-36 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-        <div>
-          <p class="font-sans text-xs tracking-[0.25em] uppercase text-espresso/60 mb-4 font-medium">Contatti</p>
-          <h1 class="font-serif text-4xl md:text-6xl text-espresso leading-[1.1] mb-12">
+  <section class="pt-32 md:pt-40 pb-24 md:pb-32 px-6 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div class="lg:col-span-6 reveal-up">
+          <p class="eyebrow mb-6">Contatti</p>
+          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-espresso leading-[1.02] mb-6">
             Mettiti in contatto
           </h1>
+          <p class="text-espresso/60 leading-relaxed text-base md:text-lg max-w-md mb-12">
+            Per informazioni sulla villa masseria, sul restauro o per richieste di visita, scrivici: saremo lieti di risponderti.
+          </p>
 
-          <div class="space-y-10">
+          <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10 border-t border-espresso/10 pt-10">
             <div>
-              <h2 class="font-sans text-xs tracking-[0.2em] uppercase text-espresso/50 mb-2 font-medium">Indirizzo</h2>
-              <address class="text-espresso/70 leading-relaxed text-sm not-italic">
-                Villa Masseria Cacchiamo<br />
-                Cacchiamo, 93010 Calascibetta (EN)<br />
-                Sicilia
-              </address>
+              <dt class="eyebrow is-bare mb-3">Indirizzo</dt>
+              <dd>
+                <address class="text-espresso/70 leading-relaxed text-base not-italic">
+                  Villa Masseria Cacchiamo<br />
+                  Cacchiamo, 93010 Calascibetta (EN)<br />
+                  Sicilia
+                </address>
+              </dd>
             </div>
+            <div>
+              <dt class="eyebrow is-bare mb-3">Proprietaria</dt>
+              <dd class="text-espresso/70 text-base">Dott.ssa Luisa Stella</dd>
+            </div>
+            <div class="sm:col-span-2">
+              <dt class="eyebrow is-bare mb-3">Email</dt>
+              <dd>
+                <a href="mailto:info@villamasseriacacchiamo.it" class="text-espresso text-lg md:text-xl font-serif underline underline-offset-4 decoration-ochre/50 hover:decoration-ochre transition-colors interactive">
+                  info@villamasseriacacchiamo.it
+                </a>
+              </dd>
+            </div>
+          </dl>
 
-            <div>
-              <h2 class="font-sans text-xs tracking-[0.2em] uppercase text-espresso/50 mb-2 font-medium">Proprietaria</h2>
-              <p class="text-espresso/70 text-sm">
-                Dott.ssa Luisa Stella
-              </p>
-            </div>
-
-            <div>
-              <h2 class="font-sans text-xs tracking-[0.2em] uppercase text-espresso/50 mb-2 font-medium">Email</h2>
-              <a href="mailto:info@villamasseriacacchiamo.it" class="text-espresso/70 text-sm underline underline-offset-2 hover:text-espresso transition-colors">
-                info@villamasseriacacchiamo.it
-              </a>
-            </div>
-          </div>
+          <a href="mailto:info@villamasseriacacchiamo.it" class="btn btn-primary interactive inline-flex mt-12">
+            Scrivici
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
         </div>
 
-        <div>
-          <p class="font-sans text-xs tracking-[0.2em] uppercase text-espresso/50 mb-4 font-medium">Mappa storica</p>
-          <div>
-            <img src="/images/home/catasto-borbonico.jpg" alt="Mappa catastale borbonica" class="w-full object-cover" />
+        <div class="lg:col-span-6 reveal-scale">
+          <p class="eyebrow mb-5">Mappa storica</p>
+          <div class="img-zoom figure-frame">
+            <img src="/images/home/catasto-borbonico.jpg" alt="Mappa catastale borbonica del feudo di Cacchiamo" class="w-full object-cover" loading="lazy" decoding="async" />
           </div>
-          <p class="text-xs text-espresso/60 mt-3 italic">
-            L'area del feudo di Cacchiamo nella mappa catastale borbonica (prima metà del 1800)
+          <p class="text-sm text-espresso/55 mt-4 italic">
+            L'area del feudo di Cacchiamo nella mappa catastale borbonica (prima metà del 1800).
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="reveal py-28 px-6 bg-sage">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="font-sans text-xs tracking-[0.25em] uppercase text-espresso/60 mb-4 font-medium">Visita</p>
-      <h2 class="font-serif text-3xl md:text-4xl text-espresso leading-[1.15] mb-6">
+  <section class="py-24 md:py-32 px-6 md:px-8 bg-sage">
+    <div class="max-w-3xl mx-auto text-center reveal-up">
+      <p class="eyebrow is-centered mb-6">Visita</p>
+      <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-espresso leading-[1.1] mb-7">
         La villa masseria e il suo territorio
       </h2>
-      <div class="w-12 h-px bg-espresso/10 mx-auto mb-8" aria-hidden="true"></div>
-      <p class="text-espresso/60 leading-relaxed text-sm md:text-base max-w-xl mx-auto">
-        Situata all'incrocio delle tre valli, sullo spartiacque che divide la Sicilia, la villa masseria di Cacchiamo rappresenta un patrimonio di inestimabile valore storico e artistico nel cuore della Sicilia.
+      <div class="w-12 h-px bg-ochre/50 mx-auto mb-8" aria-hidden="true"></div>
+      <p class="text-espresso/65 leading-relaxed text-base md:text-lg max-w-xl mx-auto">
+        Situata all'incrocio delle tre valli, sullo spartiacque che divide la Sicilia, la villa masseria di Cacchiamo rappresenta un patrimonio di inestimabile valore storico e artistico nel cuore dell'isola.
       </p>
     </div>
   </section>

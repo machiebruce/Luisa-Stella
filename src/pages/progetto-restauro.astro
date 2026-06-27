@@ -1,151 +1,188 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const gallery = [
-  "fig01.jpg", "fig01b.jpg", "fig02.jpg", "fig03.jpg", "fig04.jpg",
-  "fig05.jpg", "fig06.jpg", "fig07.jpg", "fig08.jpg", "fig09.jpg",
-  "fig10.jpg", "fig11.jpg", "fig12.jpg", "fig13.jpg", "fig14.jpg",
-  "fig15.jpg", "fig16.jpg", "fig17.jpg", "fig18.jpg", "fig19.jpg",
-  "fig20a.jpg", "fig20b.jpg"
+const panels = [
+  {
+    id: "intro",
+    title: "Introduzione storico artistica",
+    content: [
+      "La villa masseria di Cacchiamo è situata all'incrocio delle tre valli, sullo spartiacque che divide la Sicilia Citra salsum dalla Sicilia Ultra Salsum e lungo la direttrice principale della transumanza dall'area centrale della Sicilia verso le Madonie e i Nebrodi.",
+      "La masseria è stata costruita nel XVI secolo dalla famiglia Ferreri, che acquistò il feudo di \"Lo Cachimo\" da Giovanna Ventimiglia con atto del 1568. I baroni Ferreri ottennero la <em>licenda populandi</em>, che spiega le dimensioni della cappella gentilizia e l'ampia corte antistante.",
+    ],
+    image: "fig01.jpg",
+    label: "01",
+    caption: "Veduta aerea della villa masseria",
+  },
+  {
+    id: "storia",
+    title: "Villa Masseria Cacchiamo",
+    content: [
+      "Nel 1733 la masseria venne acquistata dal barone Francesco Bongiorno di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale, con forti riferimenti alle ville coeve della Piana dei Colli di Palermo.",
+      "L'incarico per l'apparato decorativo del piano nobile venne affidato alla bottega del Fumagalli, che realizzò gli stucchi policromi e dorati che ancora oggi impreziosiscono gli ambienti.",
+    ],
+    image: "fig02.jpg",
+    label: "02",
+    caption: "Scorcio della facciata principale",
+  },
+  {
+    id: "vincolo",
+    title: "Vincolo monumentale",
+    content: [
+      "Nel 1998 con decreto n. 952 viene apposto il vincolo storico monumentale, riconoscendo <em>\"il rilevante interesse storico artistico ed architettonico dell'immobile denominato masseria di Cacchiamo\"</em> da parte della Soprintendenza per i Beni Culturali e Ambientali.",
+      "Il vincolo monumentale rappresenta il riconoscimento ufficiale del valore storico e architettonico della villa masseria, che testimonia secoli di storia siciliana attraverso le sue architetture, le decorazioni e il paesaggio circostante.",
+    ],
+    image: "fig04.jpg",
+    label: "03",
+    caption: "Comune di Calascibetta — Villa Masseria in Cacchiamo. Ditta proprietaria: Stella Luisa",
+  },
+  {
+    id: "decorazioni",
+    title: "Le decorazioni interessate dal progetto",
+    content: [
+      "L'intervento di restauro ha riguardato principalmente tre tipologie di superfici decorate: dipinti murali incorniciati da modanature in stucco, stucchi policromi e dorati, e travi lignee dipinte.",
+      "I pannelli dipinti incorniciati da elementi mistilinei in stucco che scandiscono lo spazio versavano in pessimo stato di conservazione. Il sofisticato intervento di restauro ha pazientemente riconfigurato pittoricamente le gravi perdite per restituire continuità ai pannelli.",
+    ],
+    image: "fig06.jpg",
+    label: "04",
+    caption: "Dettaglio delle decorazioni in stucco",
+  },
+  {
+    id: "intervento-1",
+    title: "Superfici policrome",
+    content: [
+      "Intervento di restauro sulle superfici policrome — pulitura e consolidamento dei dipinti murali.",
+      "L'intervento ha previsto una fase preliminare di documentazione fotografica e diagnostica, seguita dalla pulitura delle superfici, dal consolidamento degli strati preparatori e dalla reintegrazione pittorica delle lacune.",
+    ],
+    imageBefore: "fig07.jpg",
+    imageAfter: "fig08.jpg",
+    label: "05",
+    caption: "Pulitura e consolidamento — prima e dopo",
+  },
+  {
+    id: "intervento-2",
+    title: "Travi lignee dipinte",
+    content: [
+      "I soffitti piani delle due stanze relative all'impianto più antico, costituiti da un'orditura principale di travi lignee a vista con moduli dipinti a tempera che simulano l'effetto di un cassettonato cinque-seicentesco.",
+      "I sollevamenti dello strato preparatorio e del film pittorico hanno richiesto un meticoloso intervento di consolidamento e riconfigurazione pittorica.",
+    ],
+    imageBefore: "fig20a.jpg",
+    imageAfter: "fig20b.jpg",
+    label: "06",
+    caption: "Travi dei soffitti piani — intervento di consolidamento",
+  },
 ];
+const dir = "/images/restauro/";
 ---
 
-<Layout title="Progetto di restauro" description="Risanamento conservativo e recupero funzionale della Villa Masseria Cacchiamo">
-  <section class="relative min-h-[60vh] flex items-end justify-center overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="/images/restauro/fig01.jpg" alt="Villa Masseria Cacchiamo" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+<Layout hero title="Progetto di restauro" description="Risanamento conservativo e recupero funzionale della Villa Masseria Cacchiamo">
+  <!-- Hero -->
+  <section class="page-hero relative h-[68vh] min-h-[30rem] flex items-end overflow-hidden">
+    <div class="absolute -inset-y-[10%] inset-x-0" data-parallax>
+      <img src="/images/restauro/fig01.jpg" alt="Villa Masseria Cacchiamo" class="w-full h-full object-cover hero-zoom" fetchpriority="high" />
     </div>
-    <div class="reveal relative z-10 text-center text-white px-6 pb-20 max-w-3xl">
-      <p class="font-sans text-xs tracking-[0.3em] uppercase mb-4 text-white/60">PNRR M1C3 – Intervento 2.2</p>
-      <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-4">Progetto di restauro</h1>
-      <p class="font-sans text-sm md:text-base text-white/60 font-light">
-        Risanamento conservativo e recupero funzionale
-      </p>
-    </div>
-  </section>
-
-  <!-- Introduzione -->
-  <section class="reveal py-28 md:py-36 px-6">
-    <div class="max-w-3xl mx-auto">
-      <p class="font-sans text-xs tracking-[0.25em] uppercase text-espresso/60 mb-6 font-medium">Relazione tecnica</p>
-      <div class="space-y-5 text-espresso/60 leading-relaxed text-sm md:text-base">
-        <h2 class="font-serif text-2xl md:text-3xl text-espresso leading-[1.2] mb-8">Introduzione storico artistica</h2>
-
-        <p>
-          La villa masseria di Cacchiamo è situata all'incrocio delle tre valli, sullo spartiacque che divide la Sicilia Citra salsum dalla Sicilia Ultra Salsum e lungo la direttrice principale della transumanza dall'area centrale della Sicilia verso le Madonie e i Nebrodi. Nelle immediate vicinanze si incrocia una fitta rete di Trazzere regie, tra cui quella che corrisponde, con molta probabilità, con la via annonaria romana che portava il grano dall'ennese ad Halesa.
-        </p>
-
-        <p>
-          La masseria è stata costruita nel XVI secolo dalla famiglia Ferreri, che acquistò il feudo di "Lo Cachimo" da Giovanna Ventimiglia con atto del 1568. I baroni Ferreri ottennero la <em>licenda populandi</em>, che spiega le dimensioni della cappella gentilizia e l'ampia corte antistante.
-        </p>
-
-        <p>
-          Nel 1733 la masseria venne acquistata dal barone Francesco Bongiorno di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale, con forti riferimenti alle ville coeve della Piana dei Colli di Palermo. L'incarico per l'apparato decorativo del piano nobile venne affidato alla bottega del Fumagalli.
-        </p>
-
-        <div class="bg-sage rounded-2xl p-6 md:p-8 my-10">
-          <p class="text-xs text-espresso/60 italic mb-2">Vincolo monumentale</p>
-          <p class="text-sm text-espresso/70 leading-relaxed">
-            Nel 1998 con decreto n. 952 viene apposto il vincolo storico monumentale, riconoscendo "il rilevante interesse storico artistico ed architettonico dell'immobile denominato masseria di Cacchiamo".
-          </p>
-          <p class="text-xs text-espresso/60 mt-4">
-            Comune di Calascibetta &mdash; Villa Masseria in Cacchiamo<br />
-            Ditta proprietaria: Stella Luisa
-          </p>
-        </div>
-
-        <h3 class="font-serif text-xl text-espresso mt-12 mb-6">Le decorazioni interessate dal progetto</h3>
-        <ul class="space-y-2 list-disc pl-5 text-espresso/60 text-sm">
-          <li>Dipinti murali incorniciati da modanature in stucco</li>
-          <li>Stucchi policromi e dorati</li>
-          <li>Travi lignee dipinte</li>
-        </ul>
-      </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10"></div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 pb-14 md:pb-20 text-protect">
+      <p class="eyebrow is-light mb-5">PNRR M1C3 · Intervento 2.2</p>
+      <h1 class="js-line font-serif text-white text-5xl md:text-6xl lg:text-7xl leading-[1.02]">
+        <span class="line-mask"><span class="line-inner">Progetto di restauro</span></span>
+      </h1>
+      <p class="font-sans text-base md:text-lg text-white/75 font-light mt-5 max-w-lg">Risanamento conservativo e recupero funzionale del piano nobile.</p>
     </div>
   </section>
 
-  <!-- Before/after pairs -->
-  <section class="reveal py-24 px-6 bg-sage">
-    <div class="max-w-5xl mx-auto">
-      <p class="font-sans text-xs tracking-[0.25em] uppercase text-espresso/60 mb-4 text-center font-medium">Documentazione</p>
-      <h2 class="font-serif text-3xl md:text-4xl text-espresso text-center leading-[1.15] mb-16">
-        Stato di conservazione e intervento
-      </h2>
-
-      <div class="space-y-20">
-        <!-- Pair: Fig 07 / Fig 08 -->
-        <div>
-          <div class="grid grid-cols-2 gap-2 md:gap-4 mb-4">
-            <div class="space-y-2">
-              <p class="font-sans text-[11px] tracking-[0.2em] uppercase text-espresso/70 text-center font-medium">Prima</p>
-              <img src="/images/restauro/fig07.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
+  <!-- Panels: orizzontale ≥lg, verticale sotto -->
+  <section id="scroll-panels" class="relative lg:h-screen lg:overflow-hidden">
+    <div class="panels-track lg:flex lg:flex-nowrap lg:h-screen lg:w-max">
+      {panels.map((panel, i) => (
+        <article class={`panel relative overflow-hidden flex items-center px-6 md:px-10 lg:px-16 py-16 md:py-24 lg:py-0 lg:w-screen lg:h-screen lg:mr-48 ${i % 2 === 0 ? "bg-white" : "bg-stone-100"}`}>
+          <span class="pointer-events-none select-none absolute font-serif leading-none text-ochre/[0.08] text-[6.5rem] sm:text-[9rem] lg:text-[20rem] -top-6 left-2 lg:top-1/2 lg:left-24 lg:-translate-y-1/2">{panel.label}</span>
+          <div class="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div class="w-full">
+              {"imageBefore" in panel && panel.imageBefore ? (
+                <>
+                  <div class="ba-slider figure-frame h-[46vh] lg:h-[60vh]" data-ba>
+                    <img class="ba-after" src={`${dir}${panel.imageAfter}`} alt="Dopo il restauro" loading="lazy" decoding="async" />
+                    <img class="ba-before" src={`${dir}${panel.imageBefore}`} alt="Prima del restauro" loading="lazy" decoding="async" />
+                    <div class="ba-divider" aria-hidden="true"></div>
+                    <button class="ba-grip interactive" type="button" role="slider" aria-label="Confronta prima e dopo il restauro" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
+                    </button>
+                    <span class="ba-label ba-label-before">Prima</span>
+                    <span class="ba-label ba-label-after">Dopo</span>
+                  </div>
+                  <p class="text-sm text-espresso/55 italic mt-3">{panel.caption}</p>
+                </>
+              ) : (
+                <div class="img-zoom figure-frame">
+                  <img src={`${dir}${panel.image}`} alt={panel.caption} class="w-full h-[46vh] lg:h-[60vh] object-cover" loading="lazy" decoding="async" />
+                  <p class="text-sm text-espresso/55 italic mt-3">{panel.caption}</p>
+                </div>
+              )}
             </div>
-            <div class="space-y-2">
-              <p class="font-sans text-[11px] tracking-[0.2em] uppercase text-espresso/70 text-center font-medium">Dopo</p>
-              <img src="/images/restauro/fig08.jpg" alt="Dopo il restauro" class="w-full h-48 md:h-72 object-cover" />
-            </div>
-          </div>
-          <p class="text-xs text-espresso/60 italic text-center">
-            Intervento di restauro sulle superfici policrome — pulitura e consolidamento
-          </p>
-        </div>
-
-        <!-- Pair: Fig 18 / Fig 19 -->
-        <div>
-          <div class="grid grid-cols-2 gap-2 md:gap-4 mb-4">
-            <div class="space-y-2">
-              <p class="font-sans text-[11px] tracking-[0.2em] uppercase text-espresso/70 text-center font-medium">Prima</p>
-              <img src="/images/restauro/fig18.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
-            </div>
-            <div class="space-y-2">
-              <p class="font-sans text-[11px] tracking-[0.2em] uppercase text-espresso/70 text-center font-medium">Dopo</p>
-              <img src="/images/restauro/fig19.jpg" alt="Dopo il restauro — dettaglio" class="w-full h-48 md:h-72 object-cover" />
-            </div>
-          </div>
-          <p class="text-xs text-espresso/60 italic text-center">
-            Superfici in legno dipinto — travi dei soffitti piani con elementi floreali stilizzati
-          </p>
-        </div>
-
-        <!-- Pair: Fig 20a / Fig 20b -->
-        <div>
-          <div class="grid grid-cols-2 gap-2 md:gap-4 mb-4">
-            <div class="space-y-2">
-              <p class="font-sans text-[11px] tracking-[0.2em] uppercase text-espresso/70 text-center font-medium">Prima</p>
-              <img src="/images/restauro/fig20a.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
-            </div>
-            <div class="space-y-2">
-              <p class="font-sans text-[11px] tracking-[0.2em] uppercase text-espresso/70 text-center font-medium">Dopo</p>
-              <img src="/images/restauro/fig20b.jpg" alt="Dopo il restauro" class="w-full h-48 md:h-72 object-cover" />
+            <div class="w-full">
+              <p class="eyebrow mb-5">{`Capitolo ${panel.label}`}</p>
+              <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-espresso leading-[1.1] mb-6">{panel.title}</h2>
+              <div class="space-y-4 text-espresso/65 leading-relaxed text-base md:text-lg">
+                {panel.content.map((p) => (
+                  <p set:html={p} />
+                ))}
+              </div>
             </div>
           </div>
-          <p class="text-xs text-espresso/60 italic text-center">
-            Sollevamenti dello strato preparatorio e del film pittorico — intervento di consolidamento
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery grid — horizontal scroll -->
-  <section class="reveal py-24 md:py-32">
-    <div class="max-w-6xl mx-auto px-6 mb-12">
-      <p class="font-sans text-xs tracking-[0.25em] uppercase text-espresso/60 mb-4 text-center font-medium">Galleria</p>
-      <h2 class="font-serif text-3xl md:text-4xl text-espresso text-center leading-[1.15]">
-        Documentazione fotografica
-      </h2>
-    </div>
-    <div class="gallery-scroll">
-      {gallery.map((img, i) => (
-        <a href={`/images/restauro/${img}`} target="_blank" rel="noopener" class="gallery-item" aria-label={`Foto ${i + 1} — apre in nuova finestra`}>
-          <img
-            src={`/images/restauro/${img}`}
-            alt={`Documentazione fotografica restauro, foto ${i + 1}`}
-            loading="lazy"
-          />
-        </a>
+        </article>
       ))}
     </div>
   </section>
+
+  <!-- Progress bar (solo scroll orizzontale ≥lg) -->
+  <div id="scroll-progress" class="hidden lg:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-40 items-center gap-3 px-4 py-2.5 bg-cream/85 backdrop-blur-sm border border-espresso/10">
+    <span class="text-espresso/70 text-sm font-serif" id="panel-label">01/06</span>
+    <div class="w-32 h-px bg-espresso/15 relative overflow-hidden">
+      <div id="progress-fill" class="absolute inset-y-0 left-0 bg-ochre" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <script>
+    import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
+    const motionOK = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+    if (motionOK && isDesktop) {
+      const panels = gsap.utils.toArray<HTMLElement>(".panel");
+      const track = document.querySelector(".panels-track");
+      const total = panels.length;
+      const gapPx = 192;
+      const scrollPerPanel = () => window.innerHeight * (window.innerWidth + gapPx) / window.innerWidth;
+
+      gsap.to(track, {
+        x: () => -(total - 1) * (window.innerWidth + gapPx),
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#scroll-panels",
+          pin: true,
+          scrub: 1,
+          end: () => "+=" + (total - 1) * scrollPerPanel(),
+          invalidateOnRefresh: true,
+        },
+      });
+
+      const progFill = document.getElementById("progress-fill");
+      const progLabel = document.getElementById("panel-label");
+      ScrollTrigger.create({
+        trigger: "#scroll-panels",
+        start: "top top",
+        end: () => "+=" + (total - 1) * scrollPerPanel(),
+        onUpdate: (self) => {
+          if (progFill) progFill.style.width = Math.round(self.progress * 100) + "%";
+          if (progLabel) {
+            const cur = Math.min(total - 1, Math.floor(self.progress * total)) + 1;
+            progLabel.textContent = String(cur).padStart(2, "0") + "/" + String(total).padStart(2, "0");
+          }
+        },
+      });
+    }
+  </script>
 </Layout>

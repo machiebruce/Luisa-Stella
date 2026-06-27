@@ -4,9 +4,10 @@ import "../styles/global.css";
 export interface Props {
   title: string;
   description?: string;
+  hero?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, hero = false } = Astro.props;
 const path = Astro.url.pathname;
 const navItems = [
   { href: "/", label: "La Villa" },
@@ -19,7 +20,7 @@ const navItems = [
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon1.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
@@ -30,66 +31,87 @@ const navItems = [
     <title>{title} | Villa Masseria Cacchiamo</title>
     {description && <meta name="description" content={description} />}
   </head>
-  <body class="bg-cream text-stone-700 font-sans antialiased">
+  <body class="bg-cream text-espresso font-sans antialiased">
+    <div id="cursor" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
 
-    <div class="nav-enter fixed top-3 md:top-6 left-1/2 -translate-x-1/2 z-50">
-      <nav class="flex items-center gap-1 bg-white/90 backdrop-blur-2xl border border-stone-200/60 rounded-full px-2 py-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.06)]" aria-label="Navigazione principale">
-        <a href="/" class="font-serif text-sm text-espresso px-3 md:px-4 py-1.5 hover:text-espresso/60 transition-colors" aria-label="Vai alla homepage">
-          Villa Masseria Cacchiamo
+    <header id="site-header" class={`site-header ${hero ? "is-transparent" : "is-solid"}`}>
+      <nav class="flex items-center justify-between px-6 md:px-8 lg:px-12 py-4 max-w-7xl mx-auto" aria-label="Navigazione principale">
+        <a href="/" class="block w-32 md:w-44" aria-label="Vai alla homepage">
+          <img src="/logo-masseria-h.svg" alt="Villa Masseria Cacchiamo" class="header-logo w-full h-auto" />
         </a>
-        <span class="w-px h-5 bg-stone-200/60" aria-hidden="true"></span>
+        <button id="menu-toggle" class="md:hidden relative z-50 flex flex-col gap-1.5 p-2" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="menu-bar block w-6 h-px bg-espresso transition-all duration-300 origin-center"></span>
+          <span class="menu-bar block w-6 h-px bg-espresso transition-all duration-300"></span>
+          <span class="menu-bar block w-6 h-px bg-espresso transition-all duration-300 origin-center"></span>
+        </button>
+        <div class="hidden md:flex items-center gap-8 lg:gap-10">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              aria-current={path === item.href ? "page" : undefined}
+              class="nav-link"
+            >
+              {item.label}
+              {path === item.href && (
+                <span class="nav-underline" aria-hidden="true"></span>
+              )}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </header>
+
+    <div id="mobile-menu" class="mobile-overlay md:hidden" aria-hidden="true">
+      <nav class="flex flex-col gap-1" aria-label="Navigazione mobile">
         {navItems.map((item) => (
           <a
             href={item.href}
             aria-current={path === item.href ? "page" : undefined}
-            class={`
-              nav-link font-sans text-[13px] tracking-[0.15em] uppercase rounded-full transition-all duration-300
-              ${path === item.href
-                ? "text-espresso"
-                : "text-espresso/30 hover:text-espresso/60"
-              }
-            `}
           >
             {item.label}
           </a>
         ))}
       </nav>
+      <div class="mt-12 pt-8 border-t border-cream/15">
+        <p class="text-xs uppercase tracking-[0.2em] text-cream/40 mb-2">Contatti</p>
+        <a href="mailto:info@villamasseriacacchiamo.it" class="!text-base !font-sans text-cream/70 underline underline-offset-2">info@villamasseriacacchiamo.it</a>
+      </div>
     </div>
 
     <main id="main-content">
       <slot />
     </main>
 
-    <footer class="bg-espresso text-cream/70" role="contentinfo">
-      <div class="max-w-6xl mx-auto px-6 py-20">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div class="md:col-span-2">
-            <h2 class="font-serif text-xl text-cream mb-4 text-base">Villa Masseria Cacchiamo</h2>
-            <p class="text-sm text-cream/60 leading-relaxed max-w-sm">
+    <footer class="bg-espresso text-cream/70 text-left" role="contentinfo">
+      <div class="max-w-6xl mx-auto px-6 md:px-8 py-20 md:py-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+          <div class="md:col-span-5">
+            <img src="/logo-masseria-h.svg" alt="Villa Masseria Cacchiamo" class="w-52 h-auto brightness-0 invert mb-5" />
+            <p class="text-sm text-cream/55 leading-relaxed max-w-sm">
               Restauro e valorizzazione dell'architettura rurale siciliana. Un gioiello del XVI secolo nel cuore della Sicilia.
             </p>
           </div>
-          <div>
-            <h3 class="text-xs tracking-[0.2em] uppercase text-cream/50 mb-4 font-medium">Contatti</h3>
+          <div class="md:col-span-3 md:col-start-7">
+            <h3 class="eyebrow is-bare is-light mb-4">Contatti</h3>
             <p class="text-sm text-cream/70 leading-relaxed">
               Dott.ssa Luisa Stella<br />
               <a href="mailto:info@villamasseriacacchiamo.it" class="underline underline-offset-2 hover:text-cream transition-colors">info@villamasseriacacchiamo.it</a>
             </p>
           </div>
-          <div>
-            <h3 class="text-xs tracking-[0.2em] uppercase text-cream/50 mb-4 font-medium">Luogo</h3>
+          <div class="md:col-span-3">
+            <h3 class="eyebrow is-bare is-light mb-4">Luogo</h3>
             <p class="text-sm text-cream/70 leading-relaxed">
               Cacchiamo<br />
               Calascibetta (EN), Sicilia
             </p>
           </div>
         </div>
-        <div class="mt-16 pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p class="text-xs text-cream/50">
+        <div class="mt-16 pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p class="text-xs text-cream/45">
             &copy; {new Date().getFullYear()} Villa Masseria Cacchiamo
           </p>
-          <p class="text-xs text-cream/50 flex items-center gap-1.5">
+          <p class="text-xs text-cream/45 flex items-center gap-1.5">
             Design
             <a href="https://www.hypebang.it" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 underline underline-offset-2 hover:text-cream transition-colors" aria-label="HYPEBANG Studio — apre in nuova finestra">
               <img src="/images/hypebang-logo.svg" alt="" class="w-8 h-auto brightness-0 invert" />
@@ -100,21 +122,192 @@ const navItems = [
       </div>
     </footer>
 
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Chiudi">&times;</button>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    </div>
+
     <script>
-      if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
-            });
-          },
-          { threshold: 0.1 }
+      import gsap from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+      import Lenis from "lenis";
+      gsap.registerPlugin(ScrollTrigger);
+
+      const motionOK = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+
+      // -- Smooth scroll (Lenis) bound to GSAP ScrollTrigger --
+      let lenis: any = null;
+      if (motionOK) {
+        lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1, smoothWheel: true });
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+      }
+
+      // -- Header: transparent over hero, solid on scroll --
+      const header = document.getElementById("site-header");
+      const heroEl = document.querySelector<HTMLElement>(".page-hero");
+      const updateHeader = () => {
+        if (!header) return;
+        if (!heroEl) {
+          header.classList.add("is-solid");
+          header.classList.remove("is-transparent");
+          return;
+        }
+        const trigger = heroEl.offsetHeight - 80;
+        const solid = window.scrollY > trigger;
+        header.classList.toggle("is-solid", solid);
+        header.classList.toggle("is-transparent", !solid);
+      };
+      updateHeader();
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      window.addEventListener("resize", updateHeader);
+
+      // -- Mobile menu overlay --
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      if (toggle && menu) {
+        const bars = toggle.querySelectorAll<HTMLElement>("span");
+        const setOpen = (open: boolean) => {
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.setAttribute("aria-label", open ? "Chiudi menu" : "Apri menu");
+          menu.setAttribute("aria-hidden", String(!open));
+          menu.classList.toggle("is-open", open);
+          document.body.style.overflow = open ? "hidden" : "";
+          if (lenis) open ? lenis.stop() : lenis.start();
+          bars[0].style.transform = open ? "rotate(45deg) translateY(7px)" : "";
+          bars[1].style.opacity = open ? "0" : "";
+          bars[2].style.transform = open ? "rotate(-45deg) translateY(-7px)" : "";
+        };
+        toggle.addEventListener("click", () =>
+          setOpen(toggle.getAttribute("aria-expanded") !== "true")
         );
-        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+        menu.querySelectorAll("a").forEach((link) => {
+          if (link.getAttribute("href")?.startsWith("mailto:")) return;
+          link.addEventListener("click", () => setOpen(false));
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && menu.classList.contains("is-open")) setOpen(false);
+        });
+      }
+
+      if (motionOK) {
+        // -- Scroll reveals --
+        document.querySelectorAll<HTMLElement>(".reveal-up, .reveal-right, .reveal-scale").forEach((el) => {
+          const fromVals: Record<string, number> = {};
+          const toVals: Record<string, number> = { opacity: 1 };
+          if (el.classList.contains("reveal-up")) { fromVals.y = 60; toVals.y = 0; }
+          if (el.classList.contains("reveal-right")) { fromVals.x = -60; toVals.x = 0; }
+          if (el.classList.contains("reveal-scale")) { fromVals.scale = 0.95; toVals.scale = 1; }
+          gsap.fromTo(el, { opacity: 0, ...fromVals }, {
+            ...toVals,
+            scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" },
+            duration: 1.2,
+            ease: "power3.out",
+          });
+        });
+
+        // -- Staggered reveals for grouped children --
+        document.querySelectorAll<HTMLElement>("[data-reveal-stagger]").forEach((group) => {
+          gsap.fromTo(group.children, { opacity: 0, y: 40 }, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0.1,
+            scrollTrigger: { trigger: group, start: "top 82%", toggleActions: "play none none none" },
+          });
+        });
+
+        // -- Parallax on hero media --
+        document.querySelectorAll<HTMLElement>("[data-parallax]").forEach((el) => {
+          gsap.to(el, {
+            yPercent: 12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el.closest("section") || el,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+        });
       } else {
-        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+        document.querySelectorAll<HTMLElement>(".reveal-up, .reveal-right, .reveal-scale").forEach((el) => {
+          el.style.opacity = "1";
+          el.style.transform = "none";
+        });
+      }
+
+      // -- Before / After comparison sliders --
+      const setPos = (el: HTMLElement, pct: number) => {
+        pct = Math.max(0, Math.min(100, pct));
+        el.style.setProperty("--pos", pct + "%");
+        const grip = el.querySelector(".ba-grip");
+        if (grip) grip.setAttribute("aria-valuenow", String(Math.round(pct)));
+      };
+      document.querySelectorAll<HTMLElement>("[data-ba]").forEach((el) => {
+        setPos(el, 50);
+        let dragging = false;
+        const move = (clientX: number) => {
+          const r = el.getBoundingClientRect();
+          setPos(el, ((clientX - r.left) / r.width) * 100);
+        };
+        el.addEventListener("pointerdown", (e) => {
+          dragging = true;
+          el.setPointerCapture(e.pointerId);
+          move(e.clientX);
+        });
+        el.addEventListener("pointermove", (e) => { if (dragging) move(e.clientX); });
+        el.addEventListener("pointerup", () => { dragging = false; });
+        el.addEventListener("pointercancel", () => { dragging = false; });
+        const grip = el.querySelector<HTMLElement>(".ba-grip");
+        grip?.addEventListener("keydown", (e) => {
+          const cur = parseFloat(el.style.getPropertyValue("--pos")) || 50;
+          if (e.key === "ArrowLeft") { setPos(el, cur - 4); e.preventDefault(); }
+          if (e.key === "ArrowRight") { setPos(el, cur + 4); e.preventDefault(); }
+        });
+      });
+
+      // -- Custom cursor --
+      const cursor = document.getElementById("cursor");
+      if (cursor && window.matchMedia("(pointer: fine)").matches && motionOK) {
+        document.addEventListener("mousemove", (e) => {
+          gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
+        });
+        document.querySelectorAll("a, button, [role=button], input, textarea, select, .interactive").forEach((el) => {
+          el.addEventListener("mouseenter", () => cursor.classList.add("grow"));
+          el.addEventListener("mouseleave", () => cursor.classList.remove("grow"));
+        });
+        document.addEventListener("mouseleave", () => { cursor.style.display = "none"; });
+        document.addEventListener("mouseenter", () => { cursor.style.display = "block"; });
+      }
+
+      // -- Lightbox --
+      const lb = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img") as HTMLImageElement | null;
+      const lbClose = document.getElementById("lightbox-close");
+      if (lb && lbImg) {
+        document.querySelectorAll<HTMLImageElement>("img").forEach((img) => {
+          if (img.closest(".slideshow") || img.closest(".gallery-scroll") || img.closest("header") || img.closest("footer") || img.closest("[data-ba]") || !img.getAttribute("src")) return;
+          img.style.cursor = "zoom-in";
+          img.addEventListener("click", () => {
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lb.classList.add("open");
+            document.body.style.overflow = "hidden";
+            if (lenis) lenis.stop();
+          });
+        });
+        const closeLb = () => {
+          lb.classList.remove("open");
+          document.body.style.overflow = "";
+          if (lenis) lenis.start();
+        };
+        lb.addEventListener("click", (e) => {
+          if (e.target === lb || e.target === lbClose || e.target === lbImg) closeLb();
+        });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLb(); });
       }
     </script>
   </body>
