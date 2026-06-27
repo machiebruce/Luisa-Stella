@@ -7,43 +7,43 @@ import Layout from "../layouts/Layout.astro";
     <div class="max-w-5xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
         <div>
-          <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 font-medium">Contatti</p>
+          <p class="font-sans text-xs tracking-[0.25em] uppercase text-sage mb-4 font-medium">Contatti</p>
           <h1 class="font-serif text-4xl md:text-6xl text-espresso leading-[1.1] mb-12">
             Mettiti in contatto
           </h1>
 
           <div class="space-y-10">
             <div>
-              <h3 class="font-sans text-[10px] tracking-[0.2em] uppercase text-espresso/40 mb-2 font-medium">Indirizzo</h3>
-              <p class="text-espresso/70 leading-relaxed text-sm">
+              <h2 class="font-sans text-xs tracking-[0.2em] uppercase text-espresso/50 mb-2 font-medium">Indirizzo</h2>
+              <address class="text-espresso/70 leading-relaxed text-sm not-italic">
                 Villa Masseria Cacchiamo<br />
                 Cacchiamo, 93010 Calascibetta (EN)<br />
                 Sicilia
-              </p>
+              </address>
             </div>
 
             <div>
-              <h3 class="font-sans text-[10px] tracking-[0.2em] uppercase text-espresso/40 mb-2 font-medium">Proprietaria</h3>
+              <h2 class="font-sans text-xs tracking-[0.2em] uppercase text-espresso/50 mb-2 font-medium">Proprietaria</h2>
               <p class="text-espresso/70 text-sm">
                 Dott.ssa Luisa Stella
               </p>
             </div>
 
             <div>
-              <h3 class="font-sans text-[10px] tracking-[0.2em] uppercase text-espresso/40 mb-2 font-medium">Email</h3>
-              <p class="text-espresso/70 text-sm">
+              <h2 class="font-sans text-xs tracking-[0.2em] uppercase text-espresso/50 mb-2 font-medium">Email</h2>
+              <a href="mailto:info@villamasseriacacchiamo.it" class="text-espresso/70 text-sm underline underline-offset-2 hover:text-espresso transition-colors">
                 info@villamasseriacacchiamo.it
-              </p>
+              </a>
             </div>
           </div>
         </div>
 
         <div>
-          <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-espresso/40 mb-4 font-medium">Mappa storica</p>
+          <p class="font-sans text-xs tracking-[0.2em] uppercase text-espresso/50 mb-4 font-medium">Mappa storica</p>
           <div class="rounded-2xl overflow-hidden bg-espresso/5">
             <img src="/images/home/catasto-borbonico.jpg" alt="Mappa catastale borbonica" class="w-full object-cover" />
           </div>
-          <p class="text-xs text-espresso/40 mt-3 italic">
+          <p class="text-xs text-espresso/60 mt-3 italic">
             L'area del feudo di Cacchiamo nella mappa catastale borbonica (prima metà del 1800)
           </p>
         </div>
@@ -53,11 +53,11 @@ import Layout from "../layouts/Layout.astro";
 
   <section class="py-28 px-6 bg-espresso/5">
     <div class="max-w-3xl mx-auto text-center">
-      <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 font-medium">Visita</p>
+      <p class="font-sans text-xs tracking-[0.25em] uppercase text-sage mb-4 font-medium">Visita</p>
       <h2 class="font-serif text-3xl md:text-4xl text-espresso leading-[1.15] mb-6">
         La villa masseria e il suo territorio
       </h2>
-      <div class="w-12 h-px bg-espresso/10 mx-auto mb-8"></div>
+      <div class="w-12 h-px bg-espresso/10 mx-auto mb-8" aria-hidden="true"></div>
       <p class="text-espresso/60 leading-relaxed text-sm md:text-base max-w-xl mx-auto">
         Situata all'incrocio delle tre valli, sullo spartiacque che divide la Sicilia, la villa masseria di Cacchiamo rappresenta un patrimonio di inestimabile valore storico e artistico nel cuore della Sicilia.
       </p>

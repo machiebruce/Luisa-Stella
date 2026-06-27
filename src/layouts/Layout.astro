@@ -29,22 +29,24 @@ const navItems = [
     <title>{title} | Villa Masseria Cacchiamo</title>
     {description && <meta name="description" content={description} />}
   </head>
-  <body class="bg-cream text-espresso/80 font-sans antialiased">
-    <!-- Floating pill nav -->
-    <div class="nav-enter fixed top-6 left-1/2 -translate-x-1/2 z-50">
-      <nav class="flex items-center gap-1 bg-white/80 backdrop-blur-2xl border border-stone-200/60 rounded-full px-2 py-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
-        <a href="/" class="font-serif text-sm text-espresso px-4 py-1.5 hover:text-espresso/60 transition-colors">
+  <body class="bg-cream text-stone-700 font-sans antialiased">
+    <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
+
+    <div class="nav-enter fixed top-3 md:top-6 left-1/2 -translate-x-1/2 z-50">
+      <nav class="flex items-center gap-1 bg-white/90 backdrop-blur-2xl border border-stone-200/60 rounded-full px-2 py-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.06)]" aria-label="Navigazione principale">
+        <a href="/" class="font-serif text-sm text-espresso px-3 md:px-4 py-1.5 hover:text-espresso/60 transition-colors" aria-label="Vai alla homepage">
           Villa Masseria Cacchiamo
         </a>
-        <span class="w-px h-5 bg-stone-200/60"></span>
+        <span class="w-px h-5 bg-stone-200/60" aria-hidden="true"></span>
         {navItems.map((item) => (
           <a
             href={item.href}
+            aria-current={path === item.href ? "page" : undefined}
             class={`
-              font-sans text-[11px] tracking-[0.15em] uppercase px-4 py-1.5 rounded-full transition-all duration-300
+              font-sans text-xs tracking-[0.15em] uppercase px-3 md:px-4 py-1.5 rounded-full transition-all duration-300
               ${path === item.href
-                ? "bg-espresso text-cream"
-                : "text-espresso/60 hover:text-espresso hover:bg-stone-100"
+                ? "bg-espresso text-cream font-medium"
+                : "text-espresso/70 hover:text-espresso hover:bg-stone-100"
               }
             `}
           >
@@ -54,59 +56,61 @@ const navItems = [
       </nav>
     </div>
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
-    <footer class="border-t border-stone-200 bg-cream">
+    <footer class="border-t border-stone-200 bg-cream" role="contentinfo">
       <div class="max-w-6xl mx-auto px-6 py-20">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div class="md:col-span-2">
-            <h3 class="font-serif text-xl text-espresso mb-4">Villa Masseria Cacchiamo</h3>
-            <p class="text-sm text-espresso/60 leading-relaxed max-w-sm">
+            <h2 class="font-serif text-xl text-espresso mb-4 text-base">Villa Masseria Cacchiamo</h2>
+            <p class="text-sm text-espresso/70 leading-relaxed max-w-sm">
               Restauro e valorizzazione dell'architettura rurale siciliana. Un gioiello del XVI secolo nel cuore della Sicilia.
             </p>
           </div>
           <div>
-            <h4 class="text-[10px] tracking-[0.2em] uppercase text-espresso/40 mb-4 font-medium">Contatti</h4>
-            <p class="text-sm text-espresso/60 leading-relaxed">
+            <h3 class="text-xs tracking-[0.2em] uppercase text-espresso/50 mb-4 font-medium">Contatti</h3>
+            <p class="text-sm text-espresso/70 leading-relaxed">
               Dott.ssa Luisa Stella<br />
-              info@villamasseriacacchiamo.it
+              <a href="mailto:info@villamasseriacacchiamo.it" class="underline underline-offset-2 hover:text-espresso transition-colors">info@villamasseriacacchiamo.it</a>
             </p>
           </div>
           <div>
-            <h4 class="text-[10px] tracking-[0.2em] uppercase text-espresso/40 mb-4 font-medium">Luogo</h4>
-            <p class="text-sm text-espresso/60 leading-relaxed">
+            <h3 class="text-xs tracking-[0.2em] uppercase text-espresso/50 mb-4 font-medium">Luogo</h3>
+            <p class="text-sm text-espresso/70 leading-relaxed">
               Cacchiamo<br />
               Calascibetta (EN), Sicilia
             </p>
           </div>
         </div>
         <div class="mt-16 pt-8 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p class="text-xs text-espresso/40">
+          <p class="text-xs text-espresso/50">
             &copy; {new Date().getFullYear()} Villa Masseria Cacchiamo
           </p>
-          <p class="text-xs text-espresso/40">
-            Design <a href="https://www.hypebang.it" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-espresso/60 transition-colors">HYPEBANG Studio</a>
+          <p class="text-xs text-espresso/50">
+            Design <a href="https://www.hypebang.it" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-espresso transition-colors" aria-label="HYPEBANG Studio — apre in nuova finestra">HYPEBANG Studio</a>
           </p>
         </div>
       </div>
     </footer>
 
     <script>
-      // Scroll reveal observer
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      } else {
+        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+      }
     </script>
   </body>
 </html>
