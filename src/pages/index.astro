@@ -3,111 +3,173 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Home" description="Villa Masseria Cacchiamo — Restauro e valorizzazione dell'architettura rurale siciliana">
-  <section class="relative h-screen flex items-center justify-center overflow-hidden">
+  <!-- Hero -->
+  <section class="relative min-h-[100dvh] flex items-end justify-center overflow-hidden">
     <div class="absolute inset-0">
       <img
         src="/images/home/hero-aerial.jpg"
         alt="Villa Masseria Cacchiamo vista aerea"
         class="w-full h-full object-cover"
       />
-      <div class="absolute inset-0 bg-black/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
     </div>
-    <div class="relative z-10 text-center text-white px-6 max-w-3xl">
-      <p class="text-sm tracking-[0.3em] uppercase mb-6 text-white/80">Benvenuti</p>
-      <h1 class="text-5xl md:text-7xl font-serif leading-tight mb-6">
+    <div class="relative z-10 text-center text-white px-6 pb-24 max-w-4xl">
+      <p class="font-sans text-[10px] tracking-[0.3em] uppercase mb-6 text-white/60">
+        Benvenuti
+      </p>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.1] mb-6">
         Villa Masseria<br />Cacchiamo
       </h1>
-      <div class="w-12 h-px bg-white/50 mx-auto mb-6"></div>
-      <p class="text-lg text-white/80 font-light">
-        Restauro e valorizzazione di un gioiello architettonico del XVI secolo
+      <div class="w-16 h-px bg-white/30 mx-auto mb-6"></div>
+      <p class="font-sans text-base md:text-lg text-white/70 font-light max-w-xl mx-auto">
+        Restauro e valorizzazione di un gioiello architettonico del XVI secolo nel cuore della Sicilia
       </p>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-      </svg>
-    </div>
   </section>
 
-  <section class="py-24 md:py-32 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-6">La Storia</p>
-      <h2 class="text-3xl md:text-4xl font-serif text-stone-700 mb-8 leading-snug">
-        Un viaggio nel tempo<br />nel cuore della Sicilia
-      </h2>
-      <div class="w-12 h-px bg-stone-300 mx-auto mb-10"></div>
-      <div class="text-stone-500 leading-relaxed space-y-4 text-left">
-        <p>
-          La villa masseria fu edificata nella seconda metà del XVI secolo dai Ferreri di Savona nella proprietà del borgo feudale di Cacchiamo, appartenuto alla famiglia dei Ventimiglia. Dalla corte principale si accede, tramite uno scalone monumentale a tenaglia, al piano nobile i cui ambienti sono stati oggetto di un restauro finanziato dal PNRR.
-        </p>
-        <p>
-          Nel 1733 la masseria venne acquistata dal barone Francesco Bongiorno di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale, con forti riferimenti alle ville coeve della Piana dei Colli di Palermo.
-        </p>
-        <p>
-          L'apparato decorativo in stile Rococò, commissionato alla bottega del Fumagalli, impreziosisce i due ambienti aggiunti sul lato Ovest del piano nobile con pannelli dipinti incorniciati da elementi mistilinei in stucco.
-        </p>
+  <!-- La Storia -->
+  <section class="py-32 md:py-40 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
+        <div class="md:col-span-2">
+          <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 font-medium">La Storia</p>
+          <h2 class="font-serif text-3xl md:text-5xl text-espresso leading-[1.15]">
+            Un viaggio nel tempo nel cuore della Sicilia
+          </h2>
+        </div>
+        <div class="md:col-span-3 space-y-5 text-espresso/60 leading-relaxed text-sm md:text-base">
+          <p>
+            La villa masseria fu edificata nella seconda metà del XVI secolo dai Ferreri di Savona nella proprietà del borgo feudale di Cacchiamo, appartenuto alla famiglia dei Ventimiglia. Dalla corte principale si accede, tramite uno scalone monumentale a tenaglia, al piano nobile i cui ambienti sono stati oggetto di un restauro finanziato dal PNRR.
+          </p>
+          <p>
+            Nel 1733 la masseria venne acquistata dal barone Francesco Bongiorno di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale, con forti riferimenti alle ville coeve della Piana dei Colli di Palermo.
+          </p>
+          <p>
+            L'apparato decorativo in stile Rococò, commissionato alla bottega del Fumagalli, impreziosisce i due ambienti aggiunti sul lato Ovest del piano nobile con pannelli dipinti incorniciati da elementi mistilinei in stucco.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-24 md:py-32 px-6 bg-stone-100">
+  <!-- Photo grid -->
+  <section class="py-24 md:py-32 px-6 bg-espresso/5">
     <div class="max-w-6xl mx-auto">
-      <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-3 text-center">Immagini</p>
-      <h2 class="text-3xl md:text-4xl font-serif text-stone-700 mb-12 text-center leading-snug">
-        La villa tra storia e paesaggio
-      </h2>
+      <div class="text-center mb-16">
+        <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 font-medium">Immagini</p>
+        <h2 class="font-serif text-3xl md:text-5xl text-espresso leading-[1.15]">
+          La villa tra storia e paesaggio
+        </h2>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="/images/home/villa-green.jpg" alt="Villa Masseria Cacchiamo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        <div class="img-zoom rounded-2xl aspect-[4/3]">
+          <img src="/images/home/villa-green.jpg" alt="Villa Masseria Cacchiamo" class="w-full h-full object-cover rounded-2xl" />
         </div>
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="/images/home/villa-sud.jpg" alt="Villa vista da sud" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        <div class="img-zoom rounded-2xl aspect-[4/3] md:mt-16">
+          <img src="/images/home/villa-sud.jpg" alt="Villa vista da sud" class="w-full h-full object-cover rounded-2xl" />
         </div>
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="/images/home/valle-lettiga.jpg" alt="La valle del torrente Lettiga" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        <div class="img-zoom rounded-2xl aspect-[4/3] md:-mt-16">
+          <img src="/images/home/valle-lettiga.jpg" alt="La valle del torrente Lettiga" class="w-full h-full object-cover rounded-2xl" />
         </div>
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="/images/home/villa-bevaio.jpg" alt="Il bevaio cinquecentesco" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        <div class="img-zoom rounded-2xl aspect-[4/3]">
+          <img src="/images/home/villa-bevaio.jpg" alt="Il bevaio cinquecentesco" class="w-full h-full object-cover rounded-2xl" />
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-24 md:py-32 px-6">
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+  <!-- Before/After: restauro decorazioni -->
+  <section class="py-32 md:py-40 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 font-medium">Prima e dopo</p>
+        <h2 class="font-serif text-3xl md:text-5xl text-espresso leading-[1.15]">
+          Il restauro delle decorazioni
+        </h2>
+      </div>
+
+      <div class="space-y-24">
+        <!-- Before/after pair 1: stucchi -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div class="space-y-4">
+            <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-sage font-medium">Prima</p>
+            <div class="rounded-2xl overflow-hidden">
+              <img src="/images/restauro/fig07.jpg" alt="Stato precedente al restauro" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-sage font-medium">Dopo</p>
+            <div class="rounded-2xl overflow-hidden">
+              <img src="/images/fine-restauro/Foto 09.jpg" alt="Dopo il restauro" class="w-full h-full object-cover" />
+            </div>
+            <p class="text-xs text-espresso/40 italic">
+              Intervento di restauro conservativo sugli stucchi policromi e dorati della bottega Fumagalli
+            </p>
+          </div>
+        </div>
+
+        <!-- Before/after pair 2: travi lignee -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div class="space-y-4">
+            <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-sage font-medium">Prima</p>
+            <div class="rounded-2xl overflow-hidden">
+              <img src="/images/restauro/fig19.jpg" alt="Travi lignee prima del restauro" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-sage font-medium">Dopo</p>
+            <div class="rounded-2xl overflow-hidden">
+              <img src="/images/fine-restauro/Foto 17 a.jpg" alt="Travi lignee dopo il restauro" class="w-full h-full object-cover" />
+            </div>
+            <p class="text-xs text-espresso/40 italic">
+              Meticoloso intervento riconfigurativo dei soffitti piani con travi lignee dipinte
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Restauro -->
+  <section class="py-24 md:py-32 px-6 bg-espresso/5">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
       <div>
-        <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-3">Il Restauro</p>
-        <h2 class="text-3xl md:text-4xl font-serif text-stone-700 mb-6 leading-snug">
+        <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 font-medium">Il Restauro</p>
+        <h2 class="font-serif text-3xl md:text-5xl text-espresso leading-[1.15] mb-6">
           Recupero e valorizzazione
         </h2>
-        <p class="text-stone-500 leading-relaxed mb-8">
+        <p class="text-espresso/60 leading-relaxed mb-8 text-sm md:text-base">
           Un progetto di risanamento conservativo e recupero funzionale finanziato dal PNRR (M1C3 – Intervento 2.2) per la protezione e valorizzazione dell'architettura e del paesaggio rurale.
         </p>
         <div class="flex gap-4">
-          <a href="/progetto-restauro" class="inline-block px-6 py-3 text-sm tracking-wider uppercase border border-stone-300 text-stone-600 hover:bg-stone-700 hover:text-stone-50 hover:border-stone-700 transition-all duration-300">
+          <a href="/progetto-restauro" class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-espresso text-cream text-xs tracking-[0.15em] uppercase font-medium transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-espresso/90 active:scale-[0.98]">
             Il Progetto
+            <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
           </a>
-          <a href="/fine-restauro" class="inline-block px-6 py-3 text-sm tracking-wider uppercase border border-stone-300 text-stone-600 hover:bg-stone-700 hover:text-stone-50 hover:border-stone-700 transition-all duration-300">
+          <a href="/fine-restauro" class="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-espresso/20 text-espresso/70 text-xs tracking-[0.15em] uppercase font-medium transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-espresso hover:text-cream active:scale-[0.98]">
             Il Restauro
           </a>
         </div>
       </div>
-      <div class="aspect-[4/3] overflow-hidden">
-        <img src="/images/home/abbeveratoio.jpg" alt="Abbeveratoio cinquecentesco" class="w-full h-full object-cover" />
+      <div class="img-zoom rounded-2xl aspect-[4/3]">
+        <img src="/images/home/abbeveratoio.jpg" alt="Abbeveratoio cinquecentesco" class="w-full h-full object-cover rounded-2xl" />
       </div>
     </div>
   </section>
 
-  <section class="py-24 px-6 bg-stone-100">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-3">Mappa storica</p>
-      <h2 class="text-3xl font-serif text-stone-700 mb-10 leading-snug">
+  <!-- Mappa storica -->
+  <section class="py-32 md:py-40 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 font-medium">Mappa storica</p>
+      <h2 class="font-serif text-3xl md:text-5xl text-espresso leading-[1.15] mb-12">
         La Sicilia del 1721
       </h2>
-      <div class="aspect-[16/9] overflow-hidden bg-stone-200">
-        <img src="/images/home/mappa-1721.png" alt="Estratto dalla carta della Sicilia del 1721, redatta dal Barone von Schmettau" class="w-full h-full object-contain" />
+      <div class="rounded-2xl overflow-hidden bg-espresso/5">
+        <img src="/images/home/mappa-1721.png" alt="Estratto dalla carta della Sicilia del 1721, redatta dal Barone von Schmettau" class="w-full object-contain" />
       </div>
-      <p class="text-sm text-stone-400 mt-4 italic">
+      <p class="text-xs text-espresso/40 mt-6 italic max-w-xl mx-auto">
         Estratto dalla carta della Sicilia del 1721, redatta dal Barone von Schmettau. In corrispondenza del sito della masseria di Cacchiamo viene segnalato un magazzeno.
       </p>
     </div>

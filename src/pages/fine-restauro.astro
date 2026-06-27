@@ -1,40 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const gallery = Array.from({ length: 27 }, (_, i) => {
-  const names = [
-    "Foto 01.jpg", "Foto 02.jpg", "Foto 03.jpg", "Foto 04.jpg", "Foto 05.jpg",
-    "Foto 06.jpg", "Foto 07.jpg", "Foto 08.jpg", "Foto 09.jpg", "Foto 10 a.jpg",
-    "Foto 10 b.jpg", "Foto 11 a.jpg", "Foto 11 b.jpg", "Foto 12 a.jpg", "Foto 12 b.jpg",
-    "Foto 13.jpg", "Foto 14.jpg", "Foto 15.jpg", "Foto 16.jpg", "Foto 17 a.jpg",
-    "Foto 17 b.jpg", "Foto 18.jpg", "Foto 19.jpg", "Foto 20.jpg", "Foto 21 a.jpg",
-    "Foto 21 b.jpg", "Foto 21 c.jpg"
-  ];
-  return names[i];
-});
+const gallery = [
+  "Foto 01.jpg", "Foto 02.jpg", "Foto 03.jpg", "Foto 04.jpg", "Foto 05.jpg",
+  "Foto 06.jpg", "Foto 07.jpg", "Foto 08.jpg", "Foto 09.jpg", "Foto 10 a.jpg",
+  "Foto 10 b.jpg", "Foto 11 a.jpg", "Foto 11 b.jpg", "Foto 12 a.jpg", "Foto 12 b.jpg",
+  "Foto 13.jpg", "Foto 14.jpg", "Foto 15.jpg", "Foto 16.jpg", "Foto 17 a.jpg",
+  "Foto 17 b.jpg", "Foto 18.jpg", "Foto 19.jpg", "Foto 20.jpg", "Foto 21 a.jpg",
+  "Foto 21 b.jpg", "Foto 21 c.jpg"
+];
 ---
 
 <Layout title="Fine lavori di restauro" description="Relazione della fine dei lavori di restauro della Villa Masseria Cacchiamo">
-  <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden pt-16">
+  <section class="relative min-h-[60vh] flex items-end justify-center overflow-hidden">
     <div class="absolute inset-0">
       <img src="/images/fine-restauro/Foto 03.jpg" alt="Restauro Villa Masseria Cacchiamo" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
     </div>
-    <div class="relative z-10 text-center text-white px-6">
-      <p class="text-sm tracking-[0.3em] uppercase mb-4 text-white/70">Intervento concluso</p>
-      <h1 class="text-4xl md:text-6xl font-serif leading-tight">
-        Fine lavori di restauro
-      </h1>
-      <p class="text-base text-white/70 mt-4 font-light">
-        Con 27 fotografie
+    <div class="relative z-10 text-center text-white px-6 pb-20 max-w-3xl">
+      <p class="font-sans text-[10px] tracking-[0.3em] uppercase mb-4 text-white/60">Intervento concluso</p>
+      <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-4">Fine lavori di restauro</h1>
+      <p class="font-sans text-sm md:text-base text-white/60 font-light">
+        27 fotografie a documentazione dell'intervento
       </p>
     </div>
   </section>
 
-  <section class="py-20 md:py-28 px-6">
+  <!-- Content -->
+  <section class="py-28 md:py-36 px-6">
     <div class="max-w-3xl mx-auto">
-      <div class="text-stone-500 leading-relaxed space-y-4">
-        <h2 class="text-2xl font-serif text-stone-700 mb-6">Relazione della fine dei lavori</h2>
+      <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-6 font-medium">Relazione</p>
+      <div class="space-y-5 text-espresso/60 leading-relaxed text-sm md:text-base">
+        <h2 class="font-serif text-2xl md:text-3xl text-espresso leading-[1.2] mb-8">Relazione della fine dei lavori</h2>
 
         <p>
           La villa masseria fu edificata nella seconda metà del XVI secolo dai Ferreri di Savona nella proprietà nel borgo feudale di Cacchiamo appartenuto alla famiglia dei Ventimiglia.
@@ -43,37 +40,108 @@ const gallery = Array.from({ length: 27 }, (_, i) => {
           Dalla corte principale del complesso si accede, tramite uno scalone monumentale a tenaglia, al piano nobile i cui ambienti sono stati oggetto di un restauro finanziato dal PNRR (M1C3 – Intervento 2.2) per la protezione e valorizzazione dell'architettura e del paesaggio rurale.
         </p>
         <p>
-          La loro configurazione attuale si deve all'ampliamento avvenuto nel XVIII secolo ad opera del marchese Benedetto Bongiorno, discendente di una famiglia nobiliare di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale.
+          La loro configurazione attuale si deve all'ampliamento avvenuto nel XVIII secolo ad opera del marchese Benedetto Bongiorno, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale.
         </p>
         <p>
-          I due ambienti aggiunti sul lato Ovest del piano nobile vennero coperti con altrettante finte volte a padiglione realizzate in legno e canne con la cosiddetta tecnica a incannucciata. Questi gusci strutturali fungono da supporto per l'apparato decorativo che venne commissionato alla bottega del Fumagalli.
+          I due ambienti aggiunti sul lato Ovest del piano nobile vennero coperti con altrettante finte volte a padiglione realizzate in legno e canne con la cosiddetta tecnica a incannucciata, supporto per l'apparato decorativo commissionato alla bottega del Fumagalli.
         </p>
 
-        <h3 class="text-xl font-serif text-stone-700 mt-10 mb-4">L'apparato decorativo</h3>
+        <h3 class="font-serif text-xl text-espresso mt-12 mb-4">L'apparato decorativo in stile Rococò</h3>
         <p>
-          L'apparato decorativo in stile Rococò di questi due ambienti è caratterizzato da pannelli dipinti incorniciati da elementi mistilinei in stucco che scandiscono lo spazio. Il loro pessimo stato di conservazione ha richiesto un sofisticato intervento di restauro e le gravi perdite sono state pazientemente riconfigurate pittoricamente per restituire continuità ai pannelli.
+          I pannelli dipinti incorniciati da elementi mistilinei in stucco che scandiscono lo spazio versavano in pessimo stato di conservazione. Il sofisticato intervento di restauro ha pazientemente riconfigurato pittoricamente le gravi perdite per restituire continuità ai pannelli.
         </p>
         <p>
-          I soffitti piani delle due stanze relative all'impianto più antico sono invece costituiti da un'orditura principale di travi lignee a vista e simulano l'effetto di un cassettonato cinque-seicentesco attraverso moduli dipinti a tempera.
+          I soffitti piani delle due stanze relative all'impianto più antico, costituiti da un'orditura principale di travi lignee a vista con moduli dipinti a tempera che simulano l'effetto di un cassettonato cinque-seicentesco, sono stati oggetto di un meticoloso intervento riconfigurativo.
         </p>
         <p>
-          Un meticoloso intervento riconfigurativo reso possibile dalla ripetitività dei motivi che caratterizzano i soffitti ha restituito continuità estetica all'insieme. Entrambi i soffitti sono inoltre incorniciati da una fascia perimetrale dipinta, anche queste risultavano molto lacunose e quello della loro riconfigurazione pittorica è stato l'intervento più complesso che il restauro ha dovuto affrontare. La qualità pittorica delle fasce che incorniciano i due soffitti li qualifica e le rende compiuti.
+          La fascia perimetrale dipinta che incornicia entrambi i soffitti presentava lacune estese: la loro riconfigurazione pittorica è stato l'intervento più complesso che il restauro ha dovuto affrontare.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="py-20 px-6 bg-stone-100">
+  <!-- Before/after pairs from fine restauro -->
+  <section class="py-24 px-6 bg-espresso/5">
+    <div class="max-w-5xl mx-auto">
+      <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 text-center font-medium">Prima e dopo</p>
+      <h2 class="font-serif text-3xl md:text-4xl text-espresso text-center leading-[1.15] mb-16">
+        Dettagli dell'intervento
+      </h2>
+
+      <div class="space-y-20">
+        <!-- Foto 10 a / 10 b -->
+        <div>
+          <div class="grid grid-cols-2 gap-2 md:gap-4 rounded-2xl overflow-hidden mb-4">
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Prima</p>
+              <img src="/images/fine-restauro/Foto%2010%20a.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Dopo</p>
+              <img src="/images/fine-restauro/Foto%2010%20b.jpg" alt="Dopo il restauro" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+          </div>
+          <p class="text-xs text-espresso/40 italic text-center">
+            Riconfigurazione pittorica dei pannelli decorativi — restituzione della continuità estetica
+          </p>
+        </div>
+
+        <!-- Foto 17 a / 17 b -->
+        <div>
+          <div class="grid grid-cols-2 gap-2 md:gap-4 rounded-2xl overflow-hidden mb-4">
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Prima</p>
+              <img src="/images/fine-restauro/Foto%2017%20a.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Dopo</p>
+              <img src="/images/fine-restauro/Foto%2017%20b.jpg" alt="Dopo il restauro" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+          </div>
+          <p class="text-xs text-espresso/40 italic text-center">
+            Soffitti piani con travi lignee — intervento riconfigurativo dei moduli dipinti a tempera
+          </p>
+        </div>
+
+        <!-- Foto 21 a / 21 b / 21 c -->
+        <div>
+          <div class="grid grid-cols-3 gap-2 md:gap-4 rounded-2xl overflow-hidden mb-4">
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Vista 1</p>
+              <img src="/images/fine-restauro/Foto%2021%20a.jpg" alt="Fascia perimetrale dipinta" class="w-full h-36 md:h-56 object-cover" />
+            </div>
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Vista 2</p>
+              <img src="/images/fine-restauro/Foto%2021%20b.jpg" alt="Fascia perimetrale dipinta" class="w-full h-36 md:h-56 object-cover" />
+            </div>
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Dettaglio</p>
+              <img src="/images/fine-restauro/Foto%2021%20c.jpg" alt="Dettaglio fascia perimetrale" class="w-full h-36 md:h-56 object-cover" />
+            </div>
+          </div>
+          <p class="text-xs text-espresso/40 italic text-center">
+            Fasce perimetrali dipinte — l'intervento più complesso che il restauro ha dovuto affrontare. La qualità pittorica restituita le rende compiute.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="py-24 md:py-32 px-6">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl font-serif text-stone-700 mb-8 text-center">Galleria fotografica</h2>
+      <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 text-center font-medium">Galleria</p>
+      <h2 class="font-serif text-3xl md:text-4xl text-espresso text-center leading-[1.15] mb-16">
+        Documentazione fotografica completa
+      </h2>
       <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
         {gallery.map((img) => (
-          <a href={`/images/fine-restauro/${encodeURIComponent(img)}`} target="_blank" class="block break-inside-avoid overflow-hidden bg-stone-200 group">
+          <a href={`/images/fine-restauro/${encodeURIComponent(img)}`} target="_blank" class="block break-inside-avoid rounded-2xl overflow-hidden bg-espresso/5 group">
             <img
               src={`/images/fine-restauro/${encodeURIComponent(img)}`}
               alt=""
               loading="lazy"
-              class="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+              class="w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
             />
           </a>
         ))}

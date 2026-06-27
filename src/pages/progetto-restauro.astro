@@ -1,77 +1,148 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const gallery = Array.from({ length: 22 }, (_, i) => {
-  const names = [
-    "fig01.jpg", "fig01b.jpg", "fig02.jpg", "fig03.jpg", "fig04.jpg",
-    "fig05.jpg", "fig06.jpg", "fig07.jpg", "fig08.jpg", "fig09.jpg",
-    "fig10.jpg", "fig11.jpg", "fig12.jpg", "fig13.jpg", "fig14.jpg",
-    "fig15.jpg", "fig16.jpg", "fig17.jpg", "fig18.jpg", "fig19.jpg",
-    "fig20a.jpg", "fig20b.jpg"
-  ];
-  return names[i];
-});
+const gallery = [
+  "fig01.jpg", "fig01b.jpg", "fig02.jpg", "fig03.jpg", "fig04.jpg",
+  "fig05.jpg", "fig06.jpg", "fig07.jpg", "fig08.jpg", "fig09.jpg",
+  "fig10.jpg", "fig11.jpg", "fig12.jpg", "fig13.jpg", "fig14.jpg",
+  "fig15.jpg", "fig16.jpg", "fig17.jpg", "fig18.jpg", "fig19.jpg",
+  "fig20a.jpg", "fig20b.jpg"
+];
 ---
 
 <Layout title="Progetto di restauro" description="Risanamento conservativo e recupero funzionale della Villa Masseria Cacchiamo">
-  <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden pt-16">
+  <section class="relative min-h-[60vh] flex items-end justify-center overflow-hidden">
     <div class="absolute inset-0">
       <img src="/images/restauro/fig01.jpg" alt="Villa Masseria Cacchiamo" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
     </div>
-    <div class="relative z-10 text-center text-white px-6">
-      <p class="text-sm tracking-[0.3em] uppercase mb-4 text-white/70">PNRR M1C3 – Intervento 2.2</p>
-      <h1 class="text-4xl md:text-6xl font-serif leading-tight">
-        Progetto di restauro
-      </h1>
-      <p class="text-base text-white/70 mt-4 font-light">
+    <div class="relative z-10 text-center text-white px-6 pb-20 max-w-3xl">
+      <p class="font-sans text-[10px] tracking-[0.3em] uppercase mb-4 text-white/60">PNRR M1C3 – Intervento 2.2</p>
+      <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-4">Progetto di restauro</h1>
+      <p class="font-sans text-sm md:text-base text-white/60 font-light">
         Risanamento conservativo e recupero funzionale
       </p>
     </div>
   </section>
 
-  <section class="py-20 md:py-28 px-6">
+  <!-- Introduzione -->
+  <section class="py-28 md:py-36 px-6">
     <div class="max-w-3xl mx-auto">
-      <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-8">Relazione tecnica generale</p>
-
-      <div class="text-stone-500 leading-relaxed space-y-4">
-        <h2 class="text-2xl font-serif text-stone-700 mb-6">Introduzione storico artistica</h2>
-
-        <p>
-          La villa masseria di Cacchiamo è situata all'incrocio delle tre valli, sullo spartiacque che divide la Sicilia Citra salsum dalla Sicilia Ultra Salsum e lungo la direttrice principale della transumanza dall'area centrale della Sicilia (Enna e Caltanissetta) verso le Madonie e i Nebrodi. Nelle immediate vicinanze della masseria si incrocia una fitta rete di Trazzere regie, tra cui risulta di grande interesse quella che corrisponde, con molta probabilità, con la via annonaria romana che portava il grano dall'ennese ad Halesa.
-        </p>
+      <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-6 font-medium">Relazione tecnica</p>
+      <div class="space-y-5 text-espresso/60 leading-relaxed text-sm md:text-base">
+        <h2 class="font-serif text-2xl md:text-3xl text-espresso leading-[1.2] mb-8">Introduzione storico artistica</h2>
 
         <p>
-          La masseria di Cacchiamo è stata costruita, per gran parte del suo impianto attuale, nel XVI secolo dalla famiglia Ferreri, che ha acquistato il feudo di "Lo Cachimo" da Giovanna Ventimiglia con atto del 1568. I baroni Ferreri ottennero la <em>licenda populandi</em> e questo spiega le dimensioni della cappella gentilizia della masseria e l'ampia corte antistante.
+          La villa masseria di Cacchiamo è situata all'incrocio delle tre valli, sullo spartiacque che divide la Sicilia Citra salsum dalla Sicilia Ultra Salsum e lungo la direttrice principale della transumanza dall'area centrale della Sicilia verso le Madonie e i Nebrodi. Nelle immediate vicinanze si incrocia una fitta rete di Trazzere regie, tra cui quella che corrisponde, con molta probabilità, con la via annonaria romana che portava il grano dall'ennese ad Halesa.
         </p>
 
         <p>
-          Nel 1733 la masseria venne acquistata dal barone Francesco Bongiorno di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale, con forti riferimenti alle ville coeve della Piana dei Colli di Palermo. L'incarico per la realizzazione dell'apparato decorativo del piano nobile viene affidato alla bottega del Fumagalli che ha operato in diverse ville del palermitano e all'oratorio dei Bianchi.
+          La masseria è stata costruita nel XVI secolo dalla famiglia Ferreri, che acquistò il feudo di "Lo Cachimo" da Giovanna Ventimiglia con atto del 1568. I baroni Ferreri ottennero la <em>licenda populandi</em>, che spiega le dimensioni della cappella gentilizia e l'ampia corte antistante.
         </p>
 
         <p>
-          Nel 1998 con decreto n. 952 viene apposto il vincolo storico monumentale, riconoscendo "il rilevante interesse storico artistico ed architettonico dell'immobile denominato masseria di Cacchiamo".
+          Nel 1733 la masseria venne acquistata dal barone Francesco Bongiorno di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale, con forti riferimenti alle ville coeve della Piana dei Colli di Palermo. L'incarico per l'apparato decorativo del piano nobile venne affidato alla bottega del Fumagalli.
         </p>
 
-        <p class="text-stone-400 text-sm">
-          <em>Comune di Calascibetta — Villa Masseria in Cacchiamo</em><br />
-          <em>Ditta proprietaria: Stella Luisa</em>
-        </p>
+        <div class="bg-espresso/5 rounded-2xl p-6 md:p-8 my-10">
+          <p class="text-xs text-espresso/40 italic mb-2">Vincolo monumentale</p>
+          <p class="text-sm text-espresso/70 leading-relaxed">
+            Nel 1998 con decreto n. 952 viene apposto il vincolo storico monumentale, riconoscendo "il rilevante interesse storico artistico ed architettonico dell'immobile denominato masseria di Cacchiamo".
+          </p>
+          <p class="text-xs text-espresso/40 mt-4">
+            Comune di Calascibetta &mdash; Villa Masseria in Cacchiamo<br />
+            Ditta proprietaria: Stella Luisa
+          </p>
+        </div>
+
+        <h3 class="font-serif text-xl text-espresso mt-12 mb-6">Le decorazioni interessate dal progetto</h3>
+        <ul class="space-y-2 list-disc pl-5 text-espresso/60 text-sm">
+          <li>Dipinti murali incorniciati da modanature in stucco</li>
+          <li>Stucchi policromi e dorati</li>
+          <li>Travi lignee dipinte</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="py-20 px-6 bg-stone-100">
+  <!-- Before/after pairs -->
+  <section class="py-24 px-6 bg-espresso/5">
+    <div class="max-w-5xl mx-auto">
+      <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 text-center font-medium">Documentazione</p>
+      <h2 class="font-serif text-3xl md:text-4xl text-espresso text-center leading-[1.15] mb-16">
+        Stato di conservazione e intervento
+      </h2>
+
+      <div class="space-y-20">
+        <!-- Pair: Fig 07 / Fig 08 -->
+        <div>
+          <div class="grid grid-cols-2 gap-2 md:gap-4 rounded-2xl overflow-hidden mb-4">
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Prima</p>
+              <img src="/images/restauro/fig07.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Dopo</p>
+              <img src="/images/restauro/fig08.jpg" alt="Dopo il restauro" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+          </div>
+          <p class="text-xs text-espresso/40 italic text-center">
+            Intervento di restauro sulle superfici policrome — pulitura e consolidamento
+          </p>
+        </div>
+
+        <!-- Pair: Fig 18 / Fig 19 -->
+        <div>
+          <div class="grid grid-cols-2 gap-2 md:gap-4 rounded-2xl overflow-hidden mb-4">
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Prima</p>
+              <img src="/images/restauro/fig18.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Dopo</p>
+              <img src="/images/restauro/fig19.jpg" alt="Dopo il restauro — dettaglio" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+          </div>
+          <p class="text-xs text-espresso/40 italic text-center">
+            Superfici in legno dipinto — travi dei soffitti piani con elementi floreali stilizzati
+          </p>
+        </div>
+
+        <!-- Pair: Fig 20a / Fig 20b -->
+        <div>
+          <div class="grid grid-cols-2 gap-2 md:gap-4 rounded-2xl overflow-hidden mb-4">
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Prima</p>
+              <img src="/images/restauro/fig20a.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+            <div class="space-y-2">
+              <p class="font-sans text-[9px] tracking-[0.2em] uppercase text-sage text-center font-medium">Dopo</p>
+              <img src="/images/restauro/fig20b.jpg" alt="Dopo il restauro" class="w-full h-48 md:h-72 object-cover" />
+            </div>
+          </div>
+          <p class="text-xs text-espresso/40 italic text-center">
+            Sollevamenti dello strato preparatorio e del film pittorico — intervento di consolidamento
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery grid -->
+  <section class="py-24 md:py-32 px-6">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl font-serif text-stone-700 mb-8 text-center">Documentazione fotografica</h2>
+      <p class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage mb-4 text-center font-medium">Galleria</p>
+      <h2 class="font-serif text-3xl md:text-4xl text-espresso text-center leading-[1.15] mb-16">
+        Documentazione fotografica
+      </h2>
       <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
         {gallery.map((img) => (
-          <a href={`/images/restauro/${img}`} target="_blank" class="block break-inside-avoid overflow-hidden bg-stone-200 group">
+          <a href={`/images/restauro/${img}`} target="_blank" class="block break-inside-avoid rounded-2xl overflow-hidden bg-espresso/5 group">
             <img
               src={`/images/restauro/${img}`}
               alt=""
               loading="lazy"
-              class="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+              class="w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
             />
           </a>
         ))}
