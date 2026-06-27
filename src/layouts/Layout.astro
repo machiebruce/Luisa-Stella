@@ -9,7 +9,7 @@ export interface Props {
 const { title, description } = Astro.props;
 const path = Astro.url.pathname;
 const navItems = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "La Villa" },
   { href: "/progetto-restauro", label: "Progetto" },
   { href: "/fine-restauro", label: "Restauro" },
   { href: "/contatti", label: "Contatti" },
@@ -89,8 +89,12 @@ const navItems = [
           <p class="text-xs text-espresso/50">
             &copy; {new Date().getFullYear()} Villa Masseria Cacchiamo
           </p>
-          <p class="text-xs text-espresso/50">
-            Design <a href="https://www.hypebang.it" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-espresso transition-colors" aria-label="HYPEBANG Studio — apre in nuova finestra">HYPEBANG Studio</a>
+          <p class="text-xs text-espresso/50 flex items-center gap-1.5">
+            Design
+            <a href="https://www.hypebang.it" target="_blank" rel="noopener" class="inline-flex items-center gap-1 underline underline-offset-2 hover:text-espresso transition-colors" aria-label="HYPEBANG Studio — apre in nuova finestra">
+              <img src="/images/hypebang-logo.svg" alt="" class="w-4 h-auto" />
+              HYPEBANG Studio
+            </a>
           </p>
         </div>
       </div>
