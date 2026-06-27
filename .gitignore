@@ -17,6 +17,10 @@ pnpm-debug.log*
 .env
 .env.production
 
+# temp files from OCR
+*.tif
+*.tiff
+
 # macOS-specific files
 .DS_Store
 
