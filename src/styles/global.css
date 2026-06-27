@@ -7,8 +7,8 @@
   --color-cream: #f2f1ef;
   --color-sage: #b9c7c8;
   --color-espresso: #2a211a;
-  --color-ochre: #a86a38;
-  --color-ochre-ink: #875327;
+  --color-accent: #1c5b5a;
+  --color-accent-ink: #154a49;
   --color-stone-150: #f0ede8;
 
   --text-xs: 13px;
@@ -43,7 +43,7 @@ html.lenis body {
 }
 
 ::selection {
-  background-color: var(--color-ochre);
+  background-color: var(--color-accent);
   color: var(--color-cream);
 }
 
@@ -57,22 +57,22 @@ html.lenis body {
   font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--color-ochre-ink);
+  color: var(--color-accent-ink);
 }
 .eyebrow::before {
   content: "";
   width: 1.75rem;
   height: 1px;
-  background: var(--color-ochre);
+  background: var(--color-accent);
 }
 .eyebrow.is-centered {
   justify-content: center;
 }
 .eyebrow.is-light {
-  color: #e6c9a4;
+  color: #9ec6c2;
 }
 .eyebrow.is-light::before {
-  background: #e6c9a4;
+  background: #9ec6c2;
 }
 /* eyebrow without the leading rule (e.g. footer columns) */
 .eyebrow.is-bare::before {
@@ -107,21 +107,15 @@ html.lenis body {
   top: 1rem;
 }
 
-/* ----- Header: transparent over hero, solid on scroll ----- */
+/* ----- Header: solid white bar, always ----- */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
-  background-color: color-mix(in srgb, var(--color-cream) 70%, transparent);
-  backdrop-filter: saturate(150%) blur(22px);
-  -webkit-backdrop-filter: saturate(150%) blur(22px);
+  background-color: #fff;
   border-bottom: 1px solid color-mix(in srgb, var(--color-espresso) 8%, transparent);
-  transition: background-color 0.4s ease;
-}
-.site-header.is-solid {
-  background-color: color-mix(in srgb, var(--color-cream) 86%, transparent);
 }
 
 .nav-link {
@@ -149,7 +143,7 @@ html.lenis body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--color-ochre);
+  background: var(--color-accent);
 }
 
 /* ----- Mobile menu: full-screen overlay ----- */
@@ -187,7 +181,7 @@ html.lenis body {
   padding-left: 0.75rem;
 }
 .mobile-overlay a[aria-current="page"] {
-  border-left: 2px solid var(--color-ochre);
+  border-left: 2px solid var(--color-accent);
   padding-left: 1rem;
 }
 
@@ -289,7 +283,7 @@ html.lenis body {
 
 /* Focus visible for keyboard nav */
 :focus-visible {
-  outline: 2px solid var(--color-ochre);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
@@ -365,7 +359,7 @@ html.lenis body {
   background: color-mix(in srgb, var(--color-espresso) 40%, transparent);
 }
 .gallery-dot.is-active {
-  background: var(--color-ochre);
+  background: var(--color-accent);
   transform: scale(1.25);
 }
 

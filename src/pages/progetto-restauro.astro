@@ -95,7 +95,7 @@ const dir = "/images/restauro/";
     <div class="panels-track lg:flex lg:flex-nowrap lg:h-screen lg:w-max">
       {panels.map((panel, i) => (
         <article class="panel relative overflow-hidden flex items-center px-6 md:px-10 lg:px-16 py-16 md:py-24 lg:py-0 lg:w-screen lg:h-screen lg:mr-24 bg-white">
-          <span class="pointer-events-none select-none absolute font-serif leading-none text-ochre/[0.08] text-[6.5rem] sm:text-[9rem] lg:text-[20rem] -top-6 left-2 lg:top-1/2 lg:left-24 lg:-translate-y-1/2">{panel.label}</span>
+          <span class="pointer-events-none select-none absolute font-serif leading-none text-accent/[0.08] text-[6.5rem] sm:text-[9rem] lg:text-[20rem] -top-6 left-2 lg:top-1/2 lg:left-24 lg:-translate-y-1/2">{panel.label}</span>
           <div class="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div class="w-full">
               {"imageBefore" in panel && panel.imageBefore ? (
@@ -138,7 +138,7 @@ const dir = "/images/restauro/";
   <div id="scroll-progress" class="hidden lg:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-40 items-center gap-3 px-4 py-2.5 bg-cream/85 backdrop-blur-sm border border-espresso/10">
     <span class="text-espresso/70 text-sm font-serif" id="panel-label">01/06</span>
     <div class="w-32 h-px bg-espresso/15 relative overflow-hidden">
-      <div id="progress-fill" class="absolute inset-y-0 left-0 bg-ochre" style="width: 0%"></div>
+      <div id="progress-fill" class="absolute inset-y-0 left-0 bg-accent" style="width: 0%"></div>
     </div>
   </div>
 
