@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const gallery = Array.from({ length: 22 }, (_, i) => {
+  const names = [
+    "fig01.jpg", "fig01b.jpg", "fig02.jpg", "fig03.jpg", "fig04.jpg",
+    "fig05.jpg", "fig06.jpg", "fig07.jpg", "fig08.jpg", "fig09.jpg",
+    "fig10.jpg", "fig11.jpg", "fig12.jpg", "fig13.jpg", "fig14.jpg",
+    "fig15.jpg", "fig16.jpg", "fig17.jpg", "fig18.jpg", "fig19.jpg",
+    "fig20a.jpg", "fig20b.jpg"
+  ];
+  return names[i];
+});
+---
+
+<Layout title="Progetto di restauro" description="Risanamento conservativo e recupero funzionale della Villa Masseria Cacchiamo">
+  <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden pt-16">
+    <div class="absolute inset-0">
+      <img src="/images/restauro/fig01.jpg" alt="Villa Masseria Cacchiamo" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+    <div class="relative z-10 text-center text-white px-6">
+      <p class="text-sm tracking-[0.3em] uppercase mb-4 text-white/70">PNRR M1C3 – Intervento 2.2</p>
+      <h1 class="text-3xl md:text-5xl font-light tracking-wide leading-tight">
+        Progetto di restauro
+      </h1>
+      <p class="text-base text-white/70 mt-4 font-light">
+        Risanamento conservativo e recupero funzionale
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 px-6">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-8">Relazione tecnica generale</p>
+
+      <div class="text-stone-500 leading-relaxed space-y-4">
+        <h2 class="text-2xl font-light text-stone-700 mb-6">Introduzione storico artistica</h2>
+
+        <p>
+          La villa masseria di Cacchiamo è situata all'incrocio delle tre valli, sullo spartiacque che divide la Sicilia Citra salsum dalla Sicilia Ultra Salsum e lungo la direttrice principale della transumanza dall'area centrale della Sicilia (Enna e Caltanissetta) verso le Madonie e i Nebrodi. Nelle immediate vicinanze della masseria si incrocia una fitta rete di Trazzere regie, tra cui risulta di grande interesse quella che corrisponde, con molta probabilità, con la via annonaria romana che portava il grano dall'ennese ad Halesa.
+        </p>
+
+        <p>
+          La masseria di Cacchiamo è stata costruita, per gran parte del suo impianto attuale, nel XVI secolo dalla famiglia Ferreri, che ha acquistato il feudo di "Lo Cachimo" da Giovanna Ventimiglia con atto del 1568. I baroni Ferreri ottennero la <em>licenda populandi</em> e questo spiega le dimensioni della cappella gentilizia della masseria e l'ampia corte antistante.
+        </p>
+
+        <p>
+          Nel 1733 la masseria venne acquistata dal barone Francesco Bongiorno di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale, con forti riferimenti alle ville coeve della Piana dei Colli di Palermo. L'incarico per la realizzazione dell'apparato decorativo del piano nobile viene affidato alla bottega del Fumagalli che ha operato in diverse ville del palermitano e all'oratorio dei Bianchi.
+        </p>
+
+        <p>
+          Nel 1998 con decreto n. 952 viene apposto il vincolo storico monumentale, riconoscendo "il rilevante interesse storico artistico ed architettonico dell'immobile denominato masseria di Cacchiamo".
+        </p>
+
+        <p class="text-stone-400 text-sm">
+          <em>Comune di Calascibetta — Villa Masseria in Cacchiamo</em><br />
+          <em>Ditta proprietaria: Stella Luisa</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-stone-100">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-light text-stone-700 mb-8 text-center">Documentazione fotografica</h2>
+      <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+        {gallery.map((img) => (
+          <a href={`/images/restauro/${img}`} target="_blank" class="block break-inside-avoid overflow-hidden bg-stone-200 group">
+            <img
+              src={`/images/restauro/${img}`}
+              alt=""
+              loading="lazy"
+              class="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

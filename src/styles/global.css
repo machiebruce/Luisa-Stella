@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: theme('colors.stone.300');
+  color: theme('colors.stone.900');
+}

@@ -1,30 +1,115 @@
 ---
-
----
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="it">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Villa Masseria Cacchiamo</title>
-	</head>
-	<body class="bg-stone-100 text-stone-800 min-h-screen flex items-center justify-center">
-		<main class="text-center max-w-2xl mx-auto p-8">
-			<h1 class="text-5xl font-light tracking-wide mb-4 text-stone-700">
-				Villa Masseria Cacchiamo
-			</h1>
-			<p class="text-lg text-stone-500 mb-8 italic">
-				Restauro e valorizzazione
-			</p>
-			<div class="w-16 h-px bg-stone-300 mx-auto mb-8"></div>
-			<p class="text-stone-600 leading-relaxed">
-				Sito in costruzione.
-			</p>
-		</main>
-	</body>
-</html>
+<Layout title="Home" description="Villa Masseria Cacchiamo — Restauro e valorizzazione dell'architettura rurale siciliana">
+  <section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/home/hero-aerial.jpg"
+        alt="Villa Masseria Cacchiamo vista aerea"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/30"></div>
+    </div>
+    <div class="relative z-10 text-center text-white px-6 max-w-3xl">
+      <p class="text-sm tracking-[0.3em] uppercase mb-6 text-white/80">Benvenuti</p>
+      <h1 class="text-4xl md:text-6xl font-light tracking-wide mb-6 leading-tight">
+        Villa Masseria<br />Cacchiamo
+      </h1>
+      <div class="w-12 h-px bg-white/50 mx-auto mb-6"></div>
+      <p class="text-lg text-white/80 font-light">
+        Restauro e valorizzazione di un gioiello architettonico del XVI secolo
+      </p>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="py-24 md:py-32 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-6">La Storia</p>
+      <h2 class="text-3xl md:text-4xl font-light text-stone-700 mb-8 leading-snug">
+        Un viaggio nel tempo<br />nel cuore della Sicilia
+      </h2>
+      <div class="w-12 h-px bg-stone-300 mx-auto mb-10"></div>
+      <div class="text-stone-500 leading-relaxed space-y-4 text-left">
+        <p>
+          La villa masseria fu edificata nella seconda metà del XVI secolo dai Ferreri di Savona nella proprietà del borgo feudale di Cacchiamo, appartenuto alla famiglia dei Ventimiglia. Dalla corte principale si accede, tramite uno scalone monumentale a tenaglia, al piano nobile i cui ambienti sono stati oggetto di un restauro finanziato dal PNRR.
+        </p>
+        <p>
+          Nel 1733 la masseria venne acquistata dal barone Francesco Bongiorno di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale, con forti riferimenti alle ville coeve della Piana dei Colli di Palermo.
+        </p>
+        <p>
+          L'apparato decorativo in stile Rococò, commissionato alla bottega del Fumagalli, impreziosisce i due ambienti aggiunti sul lato Ovest del piano nobile con pannelli dipinti incorniciati da elementi mistilinei in stucco.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 md:py-32 px-6 bg-stone-100">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-3 text-center">Immagini</p>
+      <h2 class="text-3xl md:text-4xl font-light text-stone-700 mb-12 text-center leading-snug">
+        La villa tra storia e paesaggio
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="/images/home/villa-green.jpg" alt="Villa Masseria Cacchiamo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="/images/home/villa-sud.jpg" alt="Villa vista da sud" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="/images/home/valle-lettiga.jpg" alt="La valle del torrente Lettiga" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="/images/home/villa-bevaio.jpg" alt="Il bevaio cinquecentesco" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 md:py-32 px-6">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-3">Il Restauro</p>
+        <h2 class="text-3xl md:text-4xl font-light text-stone-700 mb-6 leading-snug">
+          Recupero e valorizzazione
+        </h2>
+        <p class="text-stone-500 leading-relaxed mb-8">
+          Un progetto di risanamento conservativo e recupero funzionale finanziato dal PNRR (M1C3 – Intervento 2.2) per la protezione e valorizzazione dell'architettura e del paesaggio rurale.
+        </p>
+        <div class="flex gap-4">
+          <a href="/progetto-restauro" class="inline-block px-6 py-3 text-sm tracking-wider uppercase border border-stone-300 text-stone-600 hover:bg-stone-700 hover:text-stone-50 hover:border-stone-700 transition-all duration-300">
+            Il Progetto
+          </a>
+          <a href="/fine-restauro" class="inline-block px-6 py-3 text-sm tracking-wider uppercase border border-stone-300 text-stone-600 hover:bg-stone-700 hover:text-stone-50 hover:border-stone-700 transition-all duration-300">
+            Il Restauro
+          </a>
+        </div>
+      </div>
+      <div class="aspect-[4/3] overflow-hidden">
+        <img src="/images/home/abbeveratoio.jpg" alt="Abbeveratoio cinquecentesco" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-stone-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xs tracking-[0.25em] uppercase text-stone-400 mb-3">Mappa storica</p>
+      <h2 class="text-3xl font-light text-stone-700 mb-10 leading-snug">
+        La Sicilia del 1721
+      </h2>
+      <div class="aspect-[16/9] overflow-hidden bg-stone-200">
+        <img src="/images/home/mappa-1721.png" alt="Estratto dalla carta della Sicilia del 1721, redatta dal Barone von Schmettau" class="w-full h-full object-contain" />
+      </div>
+      <p class="text-sm text-stone-400 mt-4 italic">
+        Estratto dalla carta della Sicilia del 1721, redatta dal Barone von Schmettau. In corrispondenza del sito della masseria di Cacchiamo viene segnalato un magazzeno.
+      </p>
+    </div>
+  </section>
+</Layout>

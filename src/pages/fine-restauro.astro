@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const gallery = Array.from({ length: 27 }, (_, i) => {
+  const names = [
+    "Foto 01.jpg", "Foto 02.jpg", "Foto 03.jpg", "Foto 04.jpg", "Foto 05.jpg",
+    "Foto 06.jpg", "Foto 07.jpg", "Foto 08.jpg", "Foto 09.jpg", "Foto 10 a.jpg",
+    "Foto 10 b.jpg", "Foto 11 a.jpg", "Foto 11 b.jpg", "Foto 12 a.jpg", "Foto 12 b.jpg",
+    "Foto 13.jpg", "Foto 14.jpg", "Foto 15.jpg", "Foto 16.jpg", "Foto 17 a.jpg",
+    "Foto 17 b.jpg", "Foto 18.jpg", "Foto 19.jpg", "Foto 20.jpg", "Foto 21 a.jpg",
+    "Foto 21 b.jpg", "Foto 21 c.jpg"
+  ];
+  return names[i];
+});
+---
+
+<Layout title="Fine lavori di restauro" description="Relazione della fine dei lavori di restauro della Villa Masseria Cacchiamo">
+  <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden pt-16">
+    <div class="absolute inset-0">
+      <img src="/images/fine-restauro/Foto 03.jpg" alt="Restauro Villa Masseria Cacchiamo" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+    <div class="relative z-10 text-center text-white px-6">
+      <p class="text-sm tracking-[0.3em] uppercase mb-4 text-white/70">Intervento concluso</p>
+      <h1 class="text-3xl md:text-5xl font-light tracking-wide leading-tight">
+        Fine lavori di restauro
+      </h1>
+      <p class="text-base text-white/70 mt-4 font-light">
+        Con 27 fotografie
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-stone-500 leading-relaxed space-y-4">
+        <h2 class="text-2xl font-light text-stone-700 mb-6">Relazione della fine dei lavori</h2>
+
+        <p>
+          La villa masseria fu edificata nella seconda metà del XVI secolo dai Ferreri di Savona nella proprietà nel borgo feudale di Cacchiamo appartenuto alla famiglia dei Ventimiglia.
+        </p>
+        <p>
+          Dalla corte principale del complesso si accede, tramite uno scalone monumentale a tenaglia, al piano nobile i cui ambienti sono stati oggetto di un restauro finanziato dal PNRR (M1C3 – Intervento 2.2) per la protezione e valorizzazione dell'architettura e del paesaggio rurale.
+        </p>
+        <p>
+          La loro configurazione attuale si deve all'ampliamento avvenuto nel XVIII secolo ad opera del marchese Benedetto Bongiorno, discendente di una famiglia nobiliare di Gangi, che affidò al fratello architetto Gandolfo Felice Bongiorno la trasformazione in villa della masseria fortificata tardo medievale.
+        </p>
+        <p>
+          I due ambienti aggiunti sul lato Ovest del piano nobile vennero coperti con altrettante finte volte a padiglione realizzate in legno e canne con la cosiddetta tecnica a incannucciata. Questi gusci strutturali fungono da supporto per l'apparato decorativo che venne commissionato alla bottega del Fumagalli.
+        </p>
+
+        <h3 class="text-xl font-light text-stone-700 mt-10 mb-4">L'apparato decorativo</h3>
+        <p>
+          L'apparato decorativo in stile Rococò di questi due ambienti è caratterizzato da pannelli dipinti incorniciati da elementi mistilinei in stucco che scandiscono lo spazio. Il loro pessimo stato di conservazione ha richiesto un sofisticato intervento di restauro e le gravi perdite sono state pazientemente riconfigurate pittoricamente per restituire continuità ai pannelli.
+        </p>
+        <p>
+          I soffitti piani delle due stanze relative all'impianto più antico sono invece costituiti da un'orditura principale di travi lignee a vista e simulano l'effetto di un cassettonato cinque-seicentesco attraverso moduli dipinti a tempera.
+        </p>
+        <p>
+          Un meticoloso intervento riconfigurativo reso possibile dalla ripetitività dei motivi che caratterizzano i soffitti ha restituito continuità estetica all'insieme. Entrambi i soffitti sono inoltre incorniciati da una fascia perimetrale dipinta, anche queste risultavano molto lacunose e quello della loro riconfigurazione pittorica è stato l'intervento più complesso che il restauro ha dovuto affrontare. La qualità pittorica delle fasce che incorniciano i due soffitti li qualifica e le rende compiuti.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-stone-100">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-light text-stone-700 mb-8 text-center">Galleria fotografica</h2>
+      <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+        {gallery.map((img) => (
+          <a href={`/images/fine-restauro/${encodeURIComponent(img)}`} target="_blank" class="block break-inside-avoid overflow-hidden bg-stone-200 group">
+            <img
+              src={`/images/fine-restauro/${encodeURIComponent(img)}`}
+              alt=""
+              loading="lazy"
+              class="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
