@@ -114,39 +114,14 @@ html.lenis body {
   left: 0;
   right: 0;
   z-index: 50;
-  transition: background-color 0.5s cubic-bezier(0.32, 0.72, 0, 1),
-    border-color 0.5s ease, backdrop-filter 0.5s ease;
-  background-color: var(--color-cream);
+  background-color: color-mix(in srgb, var(--color-cream) 70%, transparent);
+  backdrop-filter: saturate(150%) blur(22px);
+  -webkit-backdrop-filter: saturate(150%) blur(22px);
   border-bottom: 1px solid color-mix(in srgb, var(--color-espresso) 8%, transparent);
-}
-.site-header.is-transparent {
-  background-color: transparent;
-  border-bottom-color: transparent;
+  transition: background-color 0.4s ease;
 }
 .site-header.is-solid {
-  background-color: color-mix(in srgb, var(--color-cream) 88%, transparent);
-  backdrop-filter: saturate(140%) blur(12px);
-  border-bottom-color: color-mix(in srgb, var(--color-espresso) 8%, transparent);
-}
-/* logo + links colour shift while transparent over a dark hero */
-.site-header .header-logo {
-  transition: filter 0.5s ease;
-}
-.site-header.is-transparent .header-logo {
-  filter: brightness(0) invert(1);
-}
-.site-header.is-transparent .nav-link {
-  color: rgba(255, 255, 255, 0.65);
-}
-.site-header.is-transparent .nav-link:hover,
-.site-header.is-transparent .nav-link[aria-current="page"] {
-  color: #fff;
-}
-.site-header.is-transparent .nav-underline {
-  background: #fff;
-}
-.site-header.is-transparent .menu-bar {
-  background: #fff;
+  background-color: color-mix(in srgb, var(--color-cream) 86%, transparent);
 }
 
 .nav-link {
@@ -163,13 +138,17 @@ html.lenis body {
 }
 .nav-link[aria-current="page"] {
   color: var(--color-espresso);
+  padding-left: 0.95rem;
 }
-.nav-underline {
+.nav-link[aria-current="page"]::before {
+  content: "";
   position: absolute;
   left: 0;
-  right: 0;
-  bottom: -6px;
-  height: 1.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
   background: var(--color-ochre);
 }
 
@@ -316,6 +295,7 @@ html.lenis body {
 
 /* Horizontal scroll gallery */
 .gallery-scroll {
+  position: relative;
   display: flex;
   overflow-x: auto;
   overscroll-behavior-x: contain;
@@ -362,6 +342,31 @@ html.lenis body {
   backdrop-filter: blur(4px);
   padding: 0.3rem 0.7rem;
   pointer-events: none;
+}
+
+/* Gallery pagination dots */
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+.gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: color-mix(in srgb, var(--color-espresso) 22%, transparent);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.gallery-dot:hover {
+  background: color-mix(in srgb, var(--color-espresso) 40%, transparent);
+}
+.gallery-dot.is-active {
+  background: var(--color-ochre);
+  transform: scale(1.25);
 }
 
 /* Custom cursor */
@@ -448,7 +453,8 @@ html.lenis body {
   color: var(--color-cream);
 }
 .btn-primary:hover {
-  background: var(--color-ochre-ink);
+  background: #fff;
+  color: var(--color-espresso);
 }
 .btn-outline {
   border: 1px solid color-mix(in srgb, var(--color-espresso) 22%, transparent);

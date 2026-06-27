@@ -90,11 +90,12 @@ const timeline = [
         La villa tra storia e paesaggio
       </h2>
     </div>
-    <div class="gallery-scroll">
+    <div id="villa-gallery" class="gallery-scroll">
       <div class="img-zoom"><img src="/images/home/villa-green.jpg" alt="Villa Masseria Cacchiamo" loading="lazy" decoding="async" /></div>
       <div class="img-zoom"><img src="/images/home/villa-sud.jpg" alt="Villa vista da sud" loading="lazy" decoding="async" /></div>
       <div class="img-zoom"><img src="/images/home/villa-bevaio.jpg" alt="Il bevaio cinquecentesco" loading="lazy" decoding="async" /></div>
     </div>
+    <div id="villa-dots" class="gallery-dots" role="tablist" aria-label="Indicatori galleria"></div>
   </section>
 
   <!-- Prima / Dopo: slider interattivo -->
@@ -180,6 +181,72 @@ const timeline = [
     </div>
   </section>
 </Layout>
+
+<script>
+  const gallery = document.getElementById("villa-gallery");
+  const dotsWrap = document.getElementById("villa-dots");
+  if (gallery && dotsWrap) {
+    const slides = Array.from(gallery.children) as HTMLElement[];
+    const reduced = !window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+    let current = 0;
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    slides.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.className = "gallery-dot";
+      b.setAttribute("role", "tab");
+      b.setAttribute("aria-label", `Vai all'immagine ${i + 1}`);
+      b.addEventListener("click", () => goTo(i, true));
+      dotsWrap.appendChild(b);
+    });
+    const dots = Array.from(dotsWrap.children) as HTMLElement[];
+
+    const setActive = (i: number) => {
+      current = i;
+      dots.forEach((d, j) => {
+        d.classList.toggle("is-active", j === i);
+        d.setAttribute("aria-selected", String(j === i));
+      });
+    };
+    const goTo = (i: number, user?: boolean) => {
+      i = (i + slides.length) % slides.length;
+      slides[i].scrollIntoView({ behavior: reduced ? "auto" : "smooth", inline: "start", block: "nearest" });
+      setActive(i);
+      if (user) restart();
+    };
+
+    let raf = 0;
+    gallery.addEventListener("scroll", () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const gl = gallery.getBoundingClientRect().left;
+        let nearest = 0, min = Infinity;
+        slides.forEach((s, j) => {
+          const d = Math.abs(s.getBoundingClientRect().left - gl);
+          if (d < min) { min = d; nearest = j; }
+        });
+        setActive(nearest);
+      });
+    }, { passive: true });
+
+    let visible = false;
+    let hovered = false;
+    const start = () => { if (!reduced && !timer && visible && !hovered) timer = setInterval(() => goTo(current + 1), 5000); };
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const restart = () => { stop(); start(); };
+    gallery.addEventListener("pointerenter", () => { hovered = true; stop(); });
+    gallery.addEventListener("pointerleave", () => { hovered = false; start(); });
+    gallery.addEventListener("touchstart", stop, { passive: true });
+
+    // Autoplay only while the gallery is on screen, so it never yanks the page
+    new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      visible ? start() : stop();
+    }, { threshold: 0.4 }).observe(gallery);
+
+    setActive(0);
+  }
+</script>
 
 <style>
   @keyframes scrollHint {
