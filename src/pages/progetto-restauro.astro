@@ -103,18 +103,18 @@ const dir = "/images/restauro/";
                   <div class="grid grid-cols-2 gap-2 md:gap-3">
                     <div class="relative img-zoom">
                       <span class="photo-tag">Prima</span>
-                      <img src={`${dir}${panel.imageBefore}`} alt="Prima del restauro" class="w-full h-[38vh] lg:h-[56vh] object-cover" loading="lazy" decoding="async" />
+                      <picture><source srcset={`${dir}${panel.imageBefore.replace(/\.\w+$/, ".webp")}`} type="image/webp" /><img src={`${dir}${panel.imageBefore}`} alt="Prima del restauro" class="w-full h-[38vh] lg:h-[56vh] object-cover" loading="lazy" decoding="async" /></picture>
                     </div>
                     <div class="relative img-zoom">
                       <span class="photo-tag">Dopo</span>
-                      <img src={`${dir}${panel.imageAfter}`} alt="Dopo il restauro" class="w-full h-[38vh] lg:h-[56vh] object-cover" loading="lazy" decoding="async" />
+                      <picture><source srcset={`${dir}${panel.imageAfter.replace(/\.\w+$/, ".webp")}`} type="image/webp" /><img src={`${dir}${panel.imageAfter}`} alt="Dopo il restauro" class="w-full h-[38vh] lg:h-[56vh] object-cover" loading="lazy" decoding="async" /></picture>
                     </div>
                   </div>
                   <p class="text-sm text-espresso/60 italic mt-3">{panel.caption}</p>
                 </>
               ) : (
                 <div class="img-zoom">
-                  <img src={`${dir}${panel.image}`} alt={panel.caption} class="w-full h-[46vh] lg:h-[60vh] object-cover" loading="lazy" decoding="async" />
+                  <picture><source srcset={`${dir}${panel.image.replace(/\.\w+$/, ".webp")}`} type="image/webp" /><img src={`${dir}${panel.image}`} alt={panel.caption} class="w-full h-[46vh] lg:h-[60vh] object-cover" loading="lazy" decoding="async" /></picture>
                   <p class="text-sm text-espresso/60 italic mt-3">{panel.caption}</p>
                 </div>
               )}
