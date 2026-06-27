@@ -25,7 +25,7 @@ const navItems = [
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Teachers:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>{title} | Villa Masseria Cacchiamo</title>
     {description && <meta name="description" content={description} />}
   </head>
@@ -43,7 +43,7 @@ const navItems = [
             href={item.href}
             aria-current={path === item.href ? "page" : undefined}
             class={`
-              font-sans text-xs tracking-[0.15em] uppercase px-3 md:px-4 py-1.5 rounded-full transition-all duration-300
+              font-sans text-[13px] tracking-[0.15em] uppercase px-3 md:px-4 py-1.5 rounded-full transition-all duration-300 font-medium
               ${path === item.href
                 ? "bg-espresso text-cream font-medium"
                 : "text-espresso/70 hover:text-espresso hover:bg-stone-100"
