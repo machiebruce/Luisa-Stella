@@ -83,7 +83,7 @@ const dir = "/images/fine-restauro/";
     <div class="panels-track lg:flex lg:flex-nowrap lg:h-screen lg:w-max">
       {panels.map((panel, i) => (
         <article id={"panel-" + panel.id} class="panel relative overflow-hidden flex items-center px-6 md:px-10 lg:px-16 py-16 md:py-24 lg:py-0 lg:w-screen lg:h-screen lg:mr-24 bg-white">
-          <span class="pointer-events-none select-none absolute font-serif leading-none text-accent/[0.08] text-[6.5rem] sm:text-[9rem] lg:text-[20rem] -top-6 left-2 lg:top-1/2 lg:left-24 lg:-translate-y-1/2">{panel.label}</span>
+          <span class="pointer-events-none select-none absolute font-serif leading-none text-stone-400/[0.10] text-[6.5rem] sm:text-[9rem] lg:text-[20rem] -top-6 left-2 lg:top-1/2 lg:left-24 lg:-translate-y-1/2">{panel.label}</span>
           <div class="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div class="w-full">
               {"imageBefore" in panel && panel.imageBefore ? (
