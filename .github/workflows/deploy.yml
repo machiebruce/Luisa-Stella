@@ -24,12 +24,17 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Debug dist contents
+        run: find dist -type f | head -50
+
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/
+          local-dir: ./dist
           server-dir: /www.villamasseriacacchiamo.it/
+          dangerous-clean-slate: true
+          exclude: ""
           security: loose
