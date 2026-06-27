@@ -27,7 +27,7 @@ jobs:
       - name: List FTP root (debug)
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-          lftp -e "ls -la; quit" -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }} 2>&1
+          lftp -e "set ssl:verify-certificate no; ls -la; quit" -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }} 2>&1
 
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -37,3 +37,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
           server-dir: /villamasseriacacchiamo.it/
+          security: loose
