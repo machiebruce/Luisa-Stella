@@ -43,10 +43,10 @@ const navItems = [
             href={item.href}
             aria-current={path === item.href ? "page" : undefined}
             class={`
-              font-sans text-[13px] tracking-[0.15em] uppercase px-3 md:px-4 py-1.5 rounded-full transition-all duration-300 font-medium
+              nav-link font-sans text-[13px] tracking-[0.15em] uppercase px-3 md:px-4 py-1.5 rounded-full transition-all duration-300
               ${path === item.href
-                ? "bg-espresso text-cream font-medium"
-                : "text-espresso/70 hover:text-espresso hover:bg-stone-100"
+                ? "text-espresso"
+                : "text-espresso/35 hover:text-espresso/70"
               }
             `}
           >
