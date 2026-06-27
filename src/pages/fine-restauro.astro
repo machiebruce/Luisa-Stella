@@ -17,7 +17,7 @@ const gallery = [
       <img src="/images/fine-restauro/Foto 03.jpg" alt="Restauro Villa Masseria Cacchiamo" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
     </div>
-    <div class="relative z-10 text-center text-white px-6 pb-20 max-w-3xl">
+    <div class="reveal relative z-10 text-center text-white px-6 pb-20 max-w-3xl">
       <p class="font-sans text-xs tracking-[0.3em] uppercase mb-4 text-white/60">Intervento concluso</p>
       <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-4">Fine lavori di restauro</h1>
       <p class="font-sans text-sm md:text-base text-white/60 font-light">
@@ -27,7 +27,7 @@ const gallery = [
   </section>
 
   <!-- Content -->
-  <section class="py-28 md:py-36 px-6">
+  <section class="reveal py-28 md:py-36 px-6">
     <div class="max-w-3xl mx-auto">
       <p class="font-sans text-xs tracking-[0.25em] uppercase text-sage mb-6 font-medium">Relazione</p>
       <div class="space-y-5 text-espresso/60 leading-relaxed text-sm md:text-base">
@@ -61,7 +61,7 @@ const gallery = [
   </section>
 
   <!-- Before/after pairs from fine restauro -->
-  <section class="py-24 px-6 bg-espresso/5">
+  <section class="reveal py-24 px-6 bg-espresso/5">
     <div class="max-w-5xl mx-auto">
       <p class="font-sans text-xs tracking-[0.25em] uppercase text-sage mb-4 text-center font-medium">Prima e dopo</p>
       <h2 class="font-serif text-3xl md:text-4xl text-espresso text-center leading-[1.15] mb-16">
@@ -71,7 +71,7 @@ const gallery = [
       <div class="space-y-20">
         <!-- Foto 10 a / 10 b -->
         <div>
-          <div class="grid grid-cols-2 gap-2 md:gap-4 rounded-2xl overflow-hidden mb-4">
+          <div class="grid grid-cols-2 gap-2 md:gap-4 mb-4">
             <div class="space-y-2">
               <p class="font-sans text-[11px] tracking-[0.2em] uppercase text-espresso/70 text-center font-medium">Prima</p>
               <img src="/images/fine-restauro/Foto%2010%20a.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
@@ -88,7 +88,7 @@ const gallery = [
 
         <!-- Foto 17 a / 17 b -->
         <div>
-          <div class="grid grid-cols-2 gap-2 md:gap-4 rounded-2xl overflow-hidden mb-4">
+          <div class="grid grid-cols-2 gap-2 md:gap-4 mb-4">
             <div class="space-y-2">
               <p class="font-sans text-[11px] tracking-[0.2em] uppercase text-espresso/70 text-center font-medium">Prima</p>
               <img src="/images/fine-restauro/Foto%2017%20a.jpg" alt="Prima del restauro" class="w-full h-48 md:h-72 object-cover" />
@@ -105,7 +105,7 @@ const gallery = [
 
         <!-- Foto 21 a / 21 b / 21 c -->
         <div>
-          <div class="grid grid-cols-3 gap-2 md:gap-4 rounded-2xl overflow-hidden mb-4">
+          <div class="grid grid-cols-3 gap-2 md:gap-4 mb-4">
             <div class="space-y-2">
               <p class="font-sans text-[11px] tracking-[0.2em] uppercase text-espresso/70 text-center font-medium">Vista 1</p>
               <img src="/images/fine-restauro/Foto%2021%20a.jpg" alt="Fascia perimetrale dipinta" class="w-full h-36 md:h-56 object-cover" />
@@ -128,7 +128,7 @@ const gallery = [
   </section>
 
   <!-- Gallery -->
-  <section class="py-24 md:py-32 px-6">
+  <section class="reveal py-24 md:py-32 px-6">
     <div class="max-w-6xl mx-auto">
       <p class="font-sans text-xs tracking-[0.25em] uppercase text-sage mb-4 text-center font-medium">Documentazione</p>
       <h2 class="font-serif text-3xl md:text-4xl text-espresso text-center leading-[1.15] mb-16">
@@ -136,12 +136,12 @@ const gallery = [
       </h2>
       <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
         {gallery.map((img, i) => (
-          <a href={`/images/fine-restauro/${encodeURIComponent(img)}`} target="_blank" rel="noopener" class="block break-inside-avoid rounded-2xl overflow-hidden bg-espresso/5 group" aria-label={`Foto ${i + 1} — apre in nuova finestra`}>
+          <a href={`/images/fine-restauro/${encodeURIComponent(img)}`} target="_blank" rel="noopener" class="gallery-item break-inside-avoid" aria-label={`Foto ${i + 1} — apre in nuova finestra`}>
             <img
               src={`/images/fine-restauro/${encodeURIComponent(img)}`}
               alt={`Documentazione fine restauro, foto ${i + 1}`}
               loading="lazy"
-              class="w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+              class="w-full object-cover"
             />
           </a>
         ))}

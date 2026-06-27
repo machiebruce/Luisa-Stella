@@ -9,7 +9,7 @@ import Layout from "../layouts/Layout.astro";
       <img
         src="/images/home/hero-aerial.jpg"
         alt="Villa Masseria Cacchiamo vista aerea"
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover hero-zoom"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
     </div>
@@ -28,7 +28,7 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <!-- La Storia -->
-  <section class="py-32 md:py-40 px-6">
+  <section class="reveal py-32 md:py-40 px-6">
     <div class="max-w-4xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
         <div class="md:col-span-2">
@@ -53,7 +53,7 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <!-- Photo grid -->
-  <section class="py-24 md:py-32 px-6 bg-espresso/5">
+  <section class="reveal py-24 md:py-32 px-6 bg-espresso/5">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <p class="font-sans text-xs tracking-[0.25em] uppercase text-sage mb-4 font-medium">Immagini</p>
@@ -62,24 +62,24 @@ import Layout from "../layouts/Layout.astro";
         </h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="img-zoom rounded-2xl aspect-[4/3]">
-          <img src="/images/home/villa-green.jpg" alt="Villa Masseria Cacchiamo" class="w-full h-full object-cover rounded-2xl" />
+        <div class="img-zoom aspect-[4/3]">
+          <img src="/images/home/villa-green.jpg" alt="Villa Masseria Cacchiamo" class="w-full h-full object-cover" />
         </div>
-        <div class="img-zoom rounded-2xl aspect-[4/3] md:mt-16">
-          <img src="/images/home/villa-sud.jpg" alt="Villa vista da sud" class="w-full h-full object-cover rounded-2xl" />
+        <div class="img-zoom aspect-[4/3] md:mt-16">
+          <img src="/images/home/villa-sud.jpg" alt="Villa vista da sud" class="w-full h-full object-cover" />
         </div>
-        <div class="img-zoom rounded-2xl aspect-[4/3] md:-mt-16">
-          <img src="/images/home/valle-lettiga.jpg" alt="La valle del torrente Lettiga" class="w-full h-full object-cover rounded-2xl" />
+        <div class="img-zoom aspect-[4/3] md:-mt-16">
+          <img src="/images/home/valle-lettiga.jpg" alt="La valle del torrente Lettiga" class="w-full h-full object-cover" />
         </div>
-        <div class="img-zoom rounded-2xl aspect-[4/3]">
-          <img src="/images/home/villa-bevaio.jpg" alt="Il bevaio cinquecentesco" class="w-full h-full object-cover rounded-2xl" />
+        <div class="img-zoom aspect-[4/3]">
+          <img src="/images/home/villa-bevaio.jpg" alt="Il bevaio cinquecentesco" class="w-full h-full object-cover" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- Before/After: restauro decorazioni -->
-  <section class="py-32 md:py-40 px-6">
+  <section class="reveal py-32 md:py-40 px-6">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16">
         <p class="font-sans text-xs tracking-[0.25em] uppercase text-sage mb-4 font-medium">Prima e dopo</p>
@@ -93,13 +93,13 @@ import Layout from "../layouts/Layout.astro";
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div class="space-y-4">
             <p class="font-sans text-xs tracking-[0.2em] uppercase text-sage font-medium">Prima</p>
-            <div class="rounded-2xl overflow-hidden">
+            <div>
               <img src="/images/restauro/fig07.jpg" alt="Stato precedente al restauro" class="w-full h-full object-cover" />
             </div>
           </div>
           <div class="space-y-4">
             <p class="font-sans text-xs tracking-[0.2em] uppercase text-sage font-medium">Dopo</p>
-            <div class="rounded-2xl overflow-hidden">
+            <div>
               <img src="/images/fine-restauro/Foto 09.jpg" alt="Dopo il restauro" class="w-full h-full object-cover" />
             </div>
             <p class="text-xs text-espresso/60 italic">
@@ -112,13 +112,13 @@ import Layout from "../layouts/Layout.astro";
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div class="space-y-4">
             <p class="font-sans text-xs tracking-[0.2em] uppercase text-sage font-medium">Prima</p>
-            <div class="rounded-2xl overflow-hidden">
+            <div>
               <img src="/images/restauro/fig19.jpg" alt="Travi lignee prima del restauro" class="w-full h-full object-cover" />
             </div>
           </div>
           <div class="space-y-4">
             <p class="font-sans text-xs tracking-[0.2em] uppercase text-sage font-medium">Dopo</p>
-            <div class="rounded-2xl overflow-hidden">
+            <div>
               <img src="/images/fine-restauro/Foto 17 a.jpg" alt="Travi lignee dopo il restauro" class="w-full h-full object-cover" />
             </div>
             <p class="text-xs text-espresso/60 italic">
@@ -131,7 +131,7 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <!-- CTA Restauro -->
-  <section class="py-24 md:py-32 px-6 bg-espresso/5">
+  <section class="reveal py-24 md:py-32 px-6 bg-espresso/5">
     <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
       <div>
         <p class="font-sans text-xs tracking-[0.25em] uppercase text-sage mb-4 font-medium">Il Restauro</p>
@@ -153,20 +153,20 @@ import Layout from "../layouts/Layout.astro";
           </a>
         </div>
       </div>
-      <div class="img-zoom rounded-2xl aspect-[4/3]">
-        <img src="/images/home/abbeveratoio.jpg" alt="Abbeveratoio cinquecentesco" class="w-full h-full object-cover rounded-2xl" />
+      <div class="img-zoom aspect-[4/3]">
+        <img src="/images/home/abbeveratoio.jpg" alt="Abbeveratoio cinquecentesco" class="w-full h-full object-cover" />
       </div>
     </div>
   </section>
 
   <!-- Mappa storica -->
-  <section class="py-32 md:py-40 px-6">
+  <section class="reveal py-32 md:py-40 px-6">
     <div class="max-w-4xl mx-auto text-center">
         <p class="font-sans text-xs tracking-[0.25em] uppercase text-sage mb-4 font-medium">Mappa storica</p>
       <h2 class="font-serif text-3xl md:text-5xl text-espresso leading-[1.15] mb-12">
         La Sicilia del 1721
       </h2>
-      <div class="rounded-2xl overflow-hidden bg-espresso/5">
+      <div>
         <img src="/images/home/mappa-1721.png" alt="Estratto dalla carta della Sicilia del 1721, redatta dal Barone von Schmettau" class="w-full object-contain" />
       </div>
       <p class="text-xs text-espresso/60 mt-6 italic max-w-xl mx-auto">
