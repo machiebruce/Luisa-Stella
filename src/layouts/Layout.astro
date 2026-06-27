@@ -239,39 +239,10 @@ const navItems = [
         });
       }
 
-      // -- Before / After comparison sliders --
-      const setPos = (el: HTMLElement, pct: number) => {
-        pct = Math.max(0, Math.min(100, pct));
-        el.style.setProperty("--pos", pct + "%");
-        const grip = el.querySelector(".ba-grip");
-        if (grip) grip.setAttribute("aria-valuenow", String(Math.round(pct)));
-      };
-      document.querySelectorAll<HTMLElement>("[data-ba]").forEach((el) => {
-        setPos(el, 50);
-        let dragging = false;
-        const move = (clientX: number) => {
-          const r = el.getBoundingClientRect();
-          setPos(el, ((clientX - r.left) / r.width) * 100);
-        };
-        el.addEventListener("pointerdown", (e) => {
-          dragging = true;
-          el.setPointerCapture(e.pointerId);
-          move(e.clientX);
-        });
-        el.addEventListener("pointermove", (e) => { if (dragging) move(e.clientX); });
-        el.addEventListener("pointerup", () => { dragging = false; });
-        el.addEventListener("pointercancel", () => { dragging = false; });
-        const grip = el.querySelector<HTMLElement>(".ba-grip");
-        grip?.addEventListener("keydown", (e) => {
-          const cur = parseFloat(el.style.getPropertyValue("--pos")) || 50;
-          if (e.key === "ArrowLeft") { setPos(el, cur - 4); e.preventDefault(); }
-          if (e.key === "ArrowRight") { setPos(el, cur + 4); e.preventDefault(); }
-        });
-      });
-
       // -- Custom cursor --
       const cursor = document.getElementById("cursor");
       if (cursor && window.matchMedia("(pointer: fine)").matches && motionOK) {
+        document.body.classList.add("hide-cursor");
         document.addEventListener("mousemove", (e) => {
           gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
         });

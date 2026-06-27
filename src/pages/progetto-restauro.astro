@@ -94,21 +94,21 @@ const dir = "/images/restauro/";
   <section id="scroll-panels" class="relative lg:h-screen lg:overflow-hidden">
     <div class="panels-track lg:flex lg:flex-nowrap lg:h-screen lg:w-max">
       {panels.map((panel, i) => (
-        <article class={`panel relative overflow-hidden flex items-center px-6 md:px-10 lg:px-16 py-16 md:py-24 lg:py-0 lg:w-screen lg:h-screen lg:mr-48 ${i % 2 === 0 ? "bg-white" : "bg-stone-100"}`}>
+        <article class="panel relative overflow-hidden flex items-center px-6 md:px-10 lg:px-16 py-16 md:py-24 lg:py-0 lg:w-screen lg:h-screen lg:mr-48 bg-white">
           <span class="pointer-events-none select-none absolute font-serif leading-none text-ochre/[0.08] text-[6.5rem] sm:text-[9rem] lg:text-[20rem] -top-6 left-2 lg:top-1/2 lg:left-24 lg:-translate-y-1/2">{panel.label}</span>
           <div class="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div class="w-full">
               {"imageBefore" in panel && panel.imageBefore ? (
                 <>
-                  <div class="ba-slider figure-frame h-[46vh] lg:h-[60vh]" data-ba>
-                    <img class="ba-after" src={`${dir}${panel.imageAfter}`} alt="Dopo il restauro" loading="lazy" decoding="async" />
-                    <img class="ba-before" src={`${dir}${panel.imageBefore}`} alt="Prima del restauro" loading="lazy" decoding="async" />
-                    <div class="ba-divider" aria-hidden="true"></div>
-                    <button class="ba-grip interactive" type="button" role="slider" aria-label="Confronta prima e dopo il restauro" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
-                    </button>
-                    <span class="ba-label ba-label-before">Prima</span>
-                    <span class="ba-label ba-label-after">Dopo</span>
+                  <div class="grid grid-cols-2 gap-2 md:gap-3">
+                    <div class="relative figure-frame img-zoom">
+                      <span class="photo-tag">Prima</span>
+                      <img src={`${dir}${panel.imageBefore}`} alt="Prima del restauro" class="w-full h-[38vh] lg:h-[56vh] object-cover" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="relative figure-frame img-zoom">
+                      <span class="photo-tag">Dopo</span>
+                      <img src={`${dir}${panel.imageAfter}`} alt="Dopo il restauro" class="w-full h-[38vh] lg:h-[56vh] object-cover" loading="lazy" decoding="async" />
+                    </div>
                   </div>
                   <p class="text-sm text-espresso/55 italic mt-3">{panel.caption}</p>
                 </>

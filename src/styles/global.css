@@ -347,59 +347,12 @@ html.lenis body {
   }
 }
 
-/* ----- Before / After comparison slider ----- */
-.ba-slider {
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-  touch-action: pan-y;
-  background: #0e0b08;
-  cursor: ew-resize;
-  --pos: 50%;
-}
-.ba-slider img {
+/* ----- Prima / Dopo photo tag ----- */
+.photo-tag {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-}
-.ba-before {
-  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
-}
-.ba-divider {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: var(--pos);
-  width: 2px;
-  background: var(--color-cream);
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-.ba-grip {
-  position: absolute;
-  top: 50%;
-  left: var(--pos);
-  transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--color-cream);
-  color: var(--color-espresso);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
-  cursor: ew-resize;
-  border: none;
-}
-.ba-grip svg { width: 22px; height: 22px; }
-.ba-label {
-  position: absolute;
-  top: 1rem;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
   font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -410,8 +363,6 @@ html.lenis body {
   padding: 0.3rem 0.7rem;
   pointer-events: none;
 }
-.ba-label-before { left: 1rem; }
-.ba-label-after { right: 1rem; }
 
 /* Custom cursor */
 #cursor {
@@ -507,4 +458,18 @@ html.lenis body {
   background: var(--color-espresso);
   color: var(--color-cream);
   border-color: var(--color-espresso);
+}
+.btn-white {
+  background: #fff;
+  color: var(--color-espresso);
+}
+.btn-white:hover {
+  background: var(--color-espresso);
+  color: var(--color-cream);
+}
+
+/* Hide the system cursor where the custom cursor is active */
+body.hide-cursor,
+body.hide-cursor * {
+  cursor: none !important;
 }

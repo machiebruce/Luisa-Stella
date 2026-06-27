@@ -100,26 +100,24 @@ const timeline = [
   <!-- Prima / Dopo: slider interattivo -->
   <section class="py-24 md:py-36 px-6 md:px-8">
     <div class="max-w-5xl mx-auto">
-      <div class="md:flex md:items-end md:justify-between gap-8 mb-10 md:mb-14 reveal-up">
-        <div>
-          <p class="eyebrow mb-5">Prima e dopo</p>
-          <h2 class="font-serif text-4xl md:text-5xl text-espresso leading-[1.08]">
-            Il restauro delle decorazioni
-          </h2>
-        </div>
-        <p class="text-sm text-espresso/50 max-w-xs mt-4 md:mt-0 md:text-right">
-          Trascina il cursore per confrontare lo stato di conservazione prima e dopo l'intervento.
+      <div class="mb-10 md:mb-14 reveal-up">
+        <p class="eyebrow mb-5">Prima e dopo</p>
+        <h2 class="font-serif text-4xl md:text-5xl text-espresso leading-[1.08]">
+          Il restauro delle decorazioni
+        </h2>
+        <p class="text-sm text-espresso/55 max-w-md mt-4">
+          Lo stato di conservazione delle superfici policrome prima e dopo l'intervento.
         </p>
       </div>
-      <div class="ba-slider figure-frame aspect-[3/2] reveal-scale" data-ba>
-        <img class="ba-after" src="/images/fine-restauro/Foto%2009.jpg" alt="Le decorazioni dopo il restauro" loading="lazy" decoding="async" />
-        <img class="ba-before" src="/images/restauro/fig07.jpg" alt="Le decorazioni prima del restauro" loading="lazy" decoding="async" />
-        <div class="ba-divider" aria-hidden="true"></div>
-        <button class="ba-grip interactive" type="button" role="slider" aria-label="Confronta prima e dopo il restauro" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
-        </button>
-        <span class="ba-label ba-label-before">Prima</span>
-        <span class="ba-label ba-label-after">Dopo</span>
+      <div class="grid grid-cols-2 gap-3 md:gap-4 reveal-scale">
+        <div class="relative figure-frame img-zoom">
+          <span class="photo-tag">Prima</span>
+          <img src="/images/restauro/fig07.jpg" alt="Le decorazioni prima del restauro" class="w-full aspect-[4/5] object-cover" loading="lazy" decoding="async" />
+        </div>
+        <div class="relative figure-frame img-zoom">
+          <span class="photo-tag">Dopo</span>
+          <img src="/images/fine-restauro/Foto%2009.jpg" alt="Le decorazioni dopo il restauro" class="w-full aspect-[4/5] object-cover" loading="lazy" decoding="async" />
+        </div>
       </div>
     </div>
   </section>
@@ -157,11 +155,8 @@ const timeline = [
           Un progetto di risanamento conservativo e recupero funzionale finanziato dal PNRR (M1C3 – Intervento 2.2) per la protezione e valorizzazione dell'architettura e del paesaggio rurale.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="/progetto-restauro" class="btn btn-primary interactive">
-            Il Progetto
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-          <a href="/fine-restauro" class="btn btn-outline interactive">Il Restauro</a>
+          <a href="/progetto-restauro" class="btn btn-primary interactive">Il Progetto</a>
+          <a href="/fine-restauro" class="btn btn-white interactive">Il Restauro</a>
         </div>
       </div>
     </div>
