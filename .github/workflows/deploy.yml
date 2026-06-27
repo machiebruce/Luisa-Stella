@@ -32,4 +32,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
           server-dir: /www.villamasseriacacchiamo.it/
+          dangerous-clean-slate: true
           security: loose
