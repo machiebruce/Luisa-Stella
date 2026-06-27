@@ -144,17 +144,20 @@ const navItems = [
       // -- Header: transparent over hero, solid on scroll --
       const header = document.getElementById("site-header");
       const heroEl = document.querySelector<HTMLElement>(".page-hero");
+      const dotNav = document.getElementById("dot-nav");
       const updateHeader = () => {
         if (!header) return;
         if (!heroEl) {
           header.classList.add("is-solid");
           header.classList.remove("is-transparent");
+          if (dotNav) dotNav.classList.add("is-visible");
           return;
         }
         const trigger = heroEl.offsetHeight - 80;
         const solid = window.scrollY > trigger;
         header.classList.toggle("is-solid", solid);
         header.classList.toggle("is-transparent", !solid);
+        if (dotNav) dotNav.classList.toggle("is-visible", solid);
       };
       updateHeader();
       window.addEventListener("scroll", updateHeader, { passive: true });
